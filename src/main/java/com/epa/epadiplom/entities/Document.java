@@ -1,17 +1,21 @@
 package com.epa.epadiplom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Objects;
 
 @Entity
+@Table(name = "document")
 public class Document {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private long id_ls;
     private String body_doc;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_ls")
+    private LogStatement logStatement;
 
     public Document() {
     }
@@ -41,13 +45,15 @@ public class Document {
                 ", body_doc = '" + body_doc + '\'' +
                 '}';
     }
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder("___document ");
-//        sb.append(" № ").append(id);
-//        sb.append("___\n For № ").append(id_ls);
-//        sb.append(" of statement\n Path to doc '").append(body_doc).append('\'');
-//        sb.append("\n");
-//        return sb.toString();
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Document document = (Document) o;
+        return id == document.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -1,16 +1,20 @@
 package com.epa.epadiplom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
+import java.util.Objects;
 
 @Entity
+@Table(name = "job_title")
 public class JobTitle {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private String job_title_name;
+
+    @OneToMany(mappedBy = "jobTitle")
+    private List<JobEmployee> jobEmployees;
 
     public JobTitle() {
     }
@@ -36,14 +40,15 @@ public class JobTitle {
                 ", job_title_name = '" + job_title_name + '\'' +
                 '}';
     }
-
-//
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder("_");
-//        sb.append("Job title: '").append(job_title_name).append('\'');
-//        sb.append(" - ").append(id).append(" ");
-//
-//        return sb.toString();
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobTitle jobTitle = (JobTitle) o;
+        return id == jobTitle.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

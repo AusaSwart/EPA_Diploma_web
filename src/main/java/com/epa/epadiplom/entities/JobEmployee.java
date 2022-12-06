@@ -2,16 +2,25 @@ package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
+@Table(name = "job_employee")
 public class JobEmployee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private long id_employee;
     private long id_job_title;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
+    private Employee employee;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_job_title")
+    private JobTitle jobTitle;
     public JobEmployee() {
     }
 
@@ -42,14 +51,15 @@ public class JobEmployee {
                 ", id = " + id +
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder(" ");
-//        sb.append("Employee №").append(id_employee);
-//        sb.append(" id of job title № ").append(id_job_title);
-//        sb.append(" , id - ").append(id);
-//        sb.append("\n");
-//        return sb.toString();
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        JobEmployee that = (JobEmployee) o;
+        return id == that.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -3,6 +3,7 @@ package com.epa.epadiplom.entities;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,6 +17,22 @@ public class Employee {
     private int privilege;
     private long id_dep;
 
+    @OneToMany(mappedBy = "employee")
+    private List<EmployeeTask> employeeTasks;
+
+    @OneToMany(mappedBy = "employee")
+    private List<NoticeEvent> noticeEvents;
+
+    @OneToMany(mappedBy = "employee")
+    private List<JobEmployee> jobEmployees;
+
+    @OneToMany(mappedBy = "employee")
+    private List<LogStatement> logStatements;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_dep")
+    private Department department;
+
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Contact contact;
@@ -28,16 +45,12 @@ public class Employee {
     @PrimaryKeyJoinColumn
     private Login login;
 
-    @ManyToMany(mappedBy = "employees")
-    private Set<Task> tasks = new HashSet<>();
-
     public Employee() {
     }
 
     public Employee(int privilege, long id_dep, Set<Task> tasks) {
         this.privilege = privilege;
         this.id_dep = id_dep;
-        this.tasks = tasks;
     }
 
     public long getId() {

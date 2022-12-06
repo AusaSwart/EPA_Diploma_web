@@ -1,20 +1,23 @@
 package com.epa.epadiplom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
+@Table(name = "event")
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private String type_of_event;
     private String comment_fe;
     private Date date_of_event;
+
+    @OneToMany(mappedBy = "event")
+    private List<NoticeEvent> noticeEvents;
 
     public Event() {
     }
@@ -47,14 +50,15 @@ public class Event {
                 ", date_of_event = " + date_of_event +
                 '}';
     }
-    //    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder("|_Event__");
-//        sb.append(" № ").append(id);
-//        sb.append("_|\n Type of event: '").append(type_of_event).append('\'');
-//        sb.append("\n Comment: '").append(comment_fe).append('\'');
-//        sb.append("\n Date of event: ").append(date_of_event);
-//        sb.append("\n");
-//        return sb.toString();
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return id == event.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -2,24 +2,43 @@ package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "emp_task")
 public class EmployeeTask {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
     private long id_executor;
     private long id_employee;
     private long id_task;
     private String comment_te;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
+    private Employee employee;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_task")
+    private Task task;
+
+
     public EmployeeTask() {
     }
 
     public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public long getId_executor() {
         return id_executor;
     }
-    public void setId(long id_executor) {
+    public void setId_executor(long id_executor) {
         this.id_executor = id_executor;
     }
     public long getIdEmployee() {
@@ -50,7 +69,6 @@ public class EmployeeTask {
                 ", comment_te = '" + comment_te + '\'' +
                 '}';
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,18 +76,9 @@ public class EmployeeTask {
         EmployeeTask that = (EmployeeTask) o;
         return id_executor == that.id_executor;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id_executor);
     }
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder("Notice : \n");
-//        sb.append(" id of executor: ").append(id_executor);
-//        sb.append(", id of employee: ").append(id_employee);
-//        sb.append(", id of task: ").append(id_task);
-//        sb.append(",\n   comment for task: \"").append(comment_te).append('\"');
-//        return sb.toString();
-//    }
+
 }

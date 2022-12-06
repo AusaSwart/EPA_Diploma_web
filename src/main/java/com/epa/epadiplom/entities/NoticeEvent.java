@@ -1,25 +1,39 @@
 package com.epa.epadiplom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Objects;
 
 @Entity
+@Table(name = "notice_event")
 public class NoticeEvent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
     private long id_recipient;
     private long id_event;
     private long id_employee;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
+    private Employee employee;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_event")
+    private Event event;
     public NoticeEvent() {
     }
 
     public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
+    public long getId_recipient() {
         return id_recipient;
     }
-    public void setId(long id_recipient) {
+    public void setId_recipient(long id_recipient) {
         this.id_recipient = id_recipient;
     }
     public long getIdEvent() {
@@ -41,14 +55,15 @@ public class NoticeEvent {
                 ", id_employee = " + id_employee +
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder("___Notice of event !!!___ \n");
-//        sb.append(" Recipient: №").append(id_recipient);
-//        sb.append(", event: №").append(id_event);
-//        sb.append(", from employee: №").append(id_employee);
-//        return sb.toString();
-//    }
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NoticeEvent that = (NoticeEvent) o;
+        return id == that.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

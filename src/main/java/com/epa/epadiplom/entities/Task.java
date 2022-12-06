@@ -4,21 +4,22 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "task")
 public class Task {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private Date date_task;
     private String name_of_task;
 
-    @ManyToMany
-    @JoinTable(name = "employee_task", joinColumns = @JoinColumn(name = "id_task"),
-    inverseJoinColumns = @JoinColumn(name = "id_employee"))
-    private Set<Employee> employees = new HashSet<>();
+    @OneToMany(mappedBy = "task")
+    private List<EmployeeTask> employeeTasks;
 
     public Task() {
     }
@@ -26,7 +27,6 @@ public class Task {
     public Task(Date date_task, String name_of_task, Set<Employee> employees) {
         this.date_task = date_task;
         this.name_of_task = name_of_task;
-        this.employees = employees;
     }
 
     public long getId() {
@@ -56,15 +56,15 @@ public class Task {
                 ", name_of_task = '" + name_of_task + '\'' +
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder(" ");
-//        sb.append("№ ").append(id);
-//        sb.append("   Date of task: '").append(date_task).append('\'');
-//        sb.append("\n   Name of task: '").append(name_of_task).append('\'');
-//        sb.append("\n");
-//        return sb.toString();
-//    }
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return id == task.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

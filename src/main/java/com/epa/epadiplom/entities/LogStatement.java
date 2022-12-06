@@ -1,16 +1,16 @@
 package com.epa.epadiplom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
+@Table(name = "log_statement")
 public class LogStatement {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
     private long id_approver;
     private long id_employee;
@@ -20,6 +20,13 @@ public class LogStatement {
     private int approve;
     private Date date_leave;
     private Date date_of_ls;
+
+    @OneToMany(mappedBy = "logStatement")
+    private List<Document> documents;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
+    private Employee employee;
 
     public LogStatement() {
     }
@@ -85,24 +92,15 @@ public class LogStatement {
                 ", date_of_ls = " + date_of_ls +
                 '}';
     }
-
-//    @Override
-//    public String toString() {
-//        final StringBuilder sb = new StringBuilder("|___Statement___ ");
-//        sb.append("№ ").append(id);
-//        sb.append("\n To approver №").append(id_approver);
-//        sb.append(" from employee № ").append(id_employee);
-//        sb.append("\n Comment '").append(comment_ls).append('\'');
-//        sb.append("\n Sum of days: ").append(days_sum);
-//        sb.append(" type of leave: ");
-//        if (type_leave == 1){ System.out.println("Sick leave"); }
-//        else if (type_leave == 2){ System.out.println("Vacation"); }
-//        else if (type_leave == 3){ System.out.println("At own expense"); }
-//        else if (type_leave == 4){ System.out.println("Dismissal"); }
-//        else if (type_leave == 5){ System.out.println("Else"); }
-//        sb.append("\n Approve status ").append(approve);
-//        sb.append("\n Date of leave: '").append(date_leave).append('\'');
-//        sb.append("\n Date of ls: '").append(date_of_ls).append('\'');
-//        return sb.toString();
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LogStatement that = (LogStatement) o;
+        return id == that.id;
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
