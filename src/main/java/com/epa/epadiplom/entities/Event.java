@@ -1,10 +1,7 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "event")
@@ -17,11 +14,17 @@ public class Event {
     private Date date_of_event;
 
     @OneToMany(mappedBy = "event")
-    private List<NoticeEvent> noticeEvents;
+    private Set<NoticeEvent> noticeEvents = new HashSet<>();
 
     public Event() {
     }
 
+    public Set<NoticeEvent> getNoticeEvents() {
+        return noticeEvents;
+    }
+    public void setNoticeEvents(Set<NoticeEvent> noticeEvents) {
+        this.noticeEvents = noticeEvents;
+    }
     public long getId() {
         return id;
     }

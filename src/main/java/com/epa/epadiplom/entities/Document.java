@@ -1,7 +1,6 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 @Entity
@@ -14,12 +13,18 @@ public class Document {
     private String body_doc;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_ls")
+    @JoinColumn(name = "id_ls", nullable = false, insertable = false, updatable = false)
     private LogStatement logStatement;
 
     public Document() {
     }
 
+    public LogStatement getLogStatement() {
+        return logStatement;
+    }
+    public void setLogStatement(LogStatement logStatement) {
+        this.logStatement = logStatement;
+    }
     public long getId() {
         return id;
     }

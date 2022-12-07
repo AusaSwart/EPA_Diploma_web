@@ -1,7 +1,6 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 @Entity
@@ -15,15 +14,27 @@ public class NoticeEvent {
     private long id_employee;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee")
+    @JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
     private Employee employee;
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_event")
+    @JoinColumn(name = "id_event", nullable = false, insertable = false, updatable = false)
     private Event event;
+
     public NoticeEvent() {
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    public Event getEvent() {
+        return event;
+    }
+    public void setEvent(Event event) {
+        this.event = event;
+    }
     public long getId() {
         return id;
     }

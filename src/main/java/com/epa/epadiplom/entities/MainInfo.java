@@ -1,7 +1,6 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
 import java.sql.Date;
 import java.util.Objects;
 
@@ -22,11 +21,9 @@ public class MainInfo {
     @MapsId
     @JoinColumn(name = "id_main_info")
     private Employee employee;
-
     @OneToOne(mappedBy = "mainInfo", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Contact contact;
-
     @OneToOne(mappedBy = "mainInfo", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private Login login;
@@ -34,20 +31,66 @@ public class MainInfo {
     public MainInfo() {
     }
 
-    public long getId() { return id_main_info; }
-    public void setId(long id_main_info) { this.id_main_info = id_main_info; }
-    public String getFirstName() { return first_name;}
-    public void setFirstName(String first_name) { this.first_name = first_name; }
-    public String getMiddleName() {return middle_name;}
-    public void setMiddleName(String middle_name) { this.middle_name = middle_name; }
-    public String getLastName() { return last_name;}
-    public void setLastName(String last_name) { this.last_name = last_name; }
-    public String getCabinetOffice() {return cabinet_office;}
-    public void setCabinetOffice(String cabinet_office) { this.cabinet_office = cabinet_office; }
-    public Date getBirthD() { return birth_d;}
-    public void setBirthD(Date birth_d) { this.birth_d = birth_d; }
-    public Date getEntryD() { return entry_d; }
-    public void setEntryD(Date entry_d) { this.entry_d = entry_d; }
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    public Contact getContact() {
+        return contact;
+    }
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+    public Login getLogin() {
+        return login;
+    }
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+    public long getId_main_info() {
+        return id_main_info;
+    }
+    public void setId_main_info(long id_main_info) {
+        this.id_main_info = id_main_info;
+    }
+    public String getFirst_name() {
+        return first_name;
+    }
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+    public String getMiddle_name() {
+        return middle_name;
+    }
+    public void setMiddle_name(String middle_name) {
+        this.middle_name = middle_name;
+    }
+    public String getLast_name() {
+        return last_name;
+    }
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+    public String getCabinet_office() {
+        return cabinet_office;
+    }
+    public void setCabinet_office(String cabinet_office) {
+        this.cabinet_office = cabinet_office;
+    }
+    public Date getBirth_d() {
+        return birth_d;
+    }
+    public void setBirth_d(Date birth_d) {
+        this.birth_d = birth_d;
+    }
+    public Date getEntry_d() {
+        return entry_d;
+    }
+    public void setEntry_d(Date entry_d) {
+        this.entry_d = entry_d;
+    }
 
     @Override
     public String toString() {

@@ -1,7 +1,6 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 @Entity
@@ -19,7 +18,6 @@ public class Contact {
     @MapsId
     @JoinColumn(name = "id_main_info_contact")
     private Employee employee;
-
     @OneToOne
     @MapsId
     @JoinColumn(name = "id_main_info_contact")
@@ -28,6 +26,18 @@ public class Contact {
     public Contact() {
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    public MainInfo getMainInfo() {
+        return mainInfo;
+    }
+    public void setMainInfo(MainInfo mainInfo) {
+        this.mainInfo = mainInfo;
+    }
     public long getId() {
         return id_main_info_contact;
     }

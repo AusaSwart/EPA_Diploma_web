@@ -1,10 +1,7 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "log_statement")
@@ -22,15 +19,26 @@ public class LogStatement {
     private Date date_of_ls;
 
     @OneToMany(mappedBy = "logStatement")
-    private List<Document> documents;
-
+    private Set<Document> documents = new HashSet<>();
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee")
+    @JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
     private Employee employee;
 
     public LogStatement() {
     }
 
+    public Set<Document> getDocuments() {
+        return documents;
+    }
+    public void setDocuments(Set<Document> documents) {
+        this.documents = documents;
+    }
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
     public long getId() {
         return id;
     }

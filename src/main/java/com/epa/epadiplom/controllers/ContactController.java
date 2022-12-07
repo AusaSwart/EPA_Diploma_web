@@ -4,9 +4,9 @@
 //
 //@Controller
 //public class ContactController {
-//    public final ContactController contactController;
+//    public final ContactRepo contactRepo;
 //
-//    public ContactController(ContactController contactController) {
-//        this.contactController = contactController;
+//    public ContactController(ContactRepo contactRepo) {
+//        this.contactRepo = contactRepo;
 //    }
 //}

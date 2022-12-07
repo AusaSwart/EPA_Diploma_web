@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<h1>List of all employees</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>privilege</th>
+        <th>ID of department</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.privilege}"></td>
+        <td th:text="${employee.id_dep}"></td>
+    </tr>
+</table>
+</body>
+</html>

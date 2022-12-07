@@ -1,9 +1,9 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "department")
@@ -14,22 +14,28 @@ public class Department {
     private String name_dep;
 
     @OneToMany(mappedBy = "department")
-    private List<Employee> employees;
+    private Set<Employee> employees = new HashSet<>();
 
     public Department() {
     }
 
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
     public long getId() {
         return id;
     }
     public void setId(long id) {
         this.id = id;
     }
-    public String getNameDep() {
+    public String getName_dep() {
         return name_dep;
     }
-    public void setNameDep(String firstName) {
-        this.name_dep = firstName;
+    public void setName_dep(String name_dep) {
+        this.name_dep = name_dep;
     }
 
     @Override

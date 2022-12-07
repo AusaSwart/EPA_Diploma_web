@@ -2,8 +2,10 @@ package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "job_title")
@@ -14,11 +16,17 @@ public class JobTitle {
     private String job_title_name;
 
     @OneToMany(mappedBy = "jobTitle")
-    private List<JobEmployee> jobEmployees;
+    private Set<JobEmployee> jobEmployees = new HashSet<>();
 
     public JobTitle() {
     }
 
+    public Set<JobEmployee> getJobEmployees() {
+        return jobEmployees;
+    }
+    public void setJobEmployees(Set<JobEmployee> jobEmployees) {
+        this.jobEmployees = jobEmployees;
+    }
     public long getId() {
         return id;
     }
