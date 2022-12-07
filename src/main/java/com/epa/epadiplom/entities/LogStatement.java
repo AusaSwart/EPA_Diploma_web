@@ -45,44 +45,52 @@ public class LogStatement {
     public void setId(long id) {
         this.id = id;
     }
-    public long getIdApprover() {
+    public long getId_approver() {
         return id_approver;
     }
-    public void setIdApprover(long id_approver) {
+    public void setId_approver(long id_approver) {
         this.id_approver = id_approver;
     }
-    public long getIdEmployee() {
+    public long getId_employee() {
         return id_employee;
     }
-    public void setIdEmployee(long id_employee) {
+    public void setId_employee(long id_employee) {
         this.id_employee = id_employee;
     }
-    public String getCommentLs() {return comment_ls;}
-    public void setCommentLs(String comment_ls) {
+    public String getComment_ls() {
+        return comment_ls;
+    }
+    public void setComment_ls(String comment_ls) {
         this.comment_ls = comment_ls;
     }
-    public int getDaysSum() {return days_sum;}
-    public void setDaysSum(int days_sum) {
+    public int getDays_sum() {
+        return days_sum;
+    }
+    public void setDays_sum(int days_sum) {
         this.days_sum = days_sum;
     }
-    public int getTypeLeave() {return type_leave;}
-    public void setTypeLeave(int type_leave) {
+    public int getType_leave() {
+        return type_leave;
+    }
+    public void setType_leave(int type_leave) {
         this.type_leave = type_leave;
     }
-    public int getApprove() {return approve;}
+    public int getApprove() {
+        return approve;
+    }
     public void setApprove(int approve) {
         this.approve = approve;
     }
-    public Date getDateLeave() {
+    public Date getDate_leave() {
         return date_leave;
     }
-    public void setDateLeave(Date date_leave) {
+    public void setDate_leave(Date date_leave) {
         this.date_leave = date_leave;
     }
-    public Date getDateOfLs() {
+    public Date getDate_of_ls() {
         return date_of_ls;
     }
-    public void setDateOfLs(Date date_of_ls) {
+    public void setDate_of_ls(Date date_of_ls) {
         this.date_of_ls = date_of_ls;
     }
 

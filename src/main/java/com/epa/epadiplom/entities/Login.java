@@ -42,12 +42,16 @@ public class Login {
     public void setId(long id_main_info_login) {
         this.id_main_info_login = id_main_info_login;
     }
-    public String getLoginUser() {return login_user;}
-    public void setLoginUser(String login_user) {
+    public String getLogin_user() {
+        return login_user;
+    }
+    public void setLogin_user(String login_user) {
         this.login_user = login_user;
     }
-    public String getPasswordUser() {return password_user;}
-    public void setPasswordUser(String password_user) {
+    public String getPassword_user() {
+        return password_user;
+    }
+    public void setPassword_user(String password_user) {
         this.password_user = password_user;
     }
 

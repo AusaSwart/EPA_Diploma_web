@@ -3,7 +3,6 @@ package com.epa.epadiplom.entities;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -33,11 +32,10 @@ public class JobTitle {
     public void setId(long id) {
         this.id = id;
     }
-    public String getJobTitleName() {
-        System.out.printf(job_title_name);
+    public String getJob_title_name() {
         return job_title_name;
     }
-    public void setJobTitleName(String job_title_name) {
+    public void setJob_title_name(String job_title_name) {
         this.job_title_name = job_title_name;
     }
 

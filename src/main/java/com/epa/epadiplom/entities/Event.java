@@ -31,16 +31,22 @@ public class Event {
     public void setId(long id) {
         this.id = id;
     }
-    public Object getTypeOfEvent() {return type_of_event;}
-    public void setTypeOfEvent(String type_of_event) {
+    public String getType_of_event() {
+        return type_of_event;
+    }
+    public void setType_of_event(String type_of_event) {
         this.type_of_event = type_of_event;
     }
-    public Object getCommentFE() {return comment_fe;}
-    public void setCommentFE(String comment_fe) { this.comment_fe = comment_fe; }
-    public Object getDateOfEvent() {
+    public String getComment_fe() {
+        return comment_fe;
+    }
+    public void setComment_fe(String comment_fe) {
+        this.comment_fe = comment_fe;
+    }
+    public Date getDate_of_event() {
         return date_of_event;
     }
-    public void setDateOfEvent(Date date_of_event) {
+    public void setDate_of_event(Date date_of_event) {
         this.date_of_event = date_of_event;
     }
 

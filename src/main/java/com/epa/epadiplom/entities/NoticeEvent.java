@@ -47,14 +47,16 @@ public class NoticeEvent {
     public void setId_recipient(long id_recipient) {
         this.id_recipient = id_recipient;
     }
-    public long getIdEvent() {
+    public long getId_event() {
         return id_event;
     }
-    public void setIdEvent(long id_event) { this.id_event = id_event; }
-    public long getIdEmployee() {
+    public void setId_event(long id_event) {
+        this.id_event = id_event;
+    }
+    public long getId_employee() {
         return id_employee;
     }
-    public void setIdEmployee(long id_employee) {
+    public void setId_employee(long id_employee) {
         this.id_employee = id_employee;
     }
 

@@ -49,10 +49,10 @@ public class MainInfo {
     public void setLogin(Login login) {
         this.login = login;
     }
-    public long getId_main_info() {
+    public long getId() {
         return id_main_info;
     }
-    public void setId_main_info(long id_main_info) {
+    public void setId(long id_main_info) {
         this.id_main_info = id_main_info;
     }
     public String getFirst_name() {

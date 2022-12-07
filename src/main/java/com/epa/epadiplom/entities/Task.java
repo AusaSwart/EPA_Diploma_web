@@ -38,16 +38,16 @@ public class Task {
     public void setId(long id) {
         this.id = id;
     }
-    public Date getDateTask() {
+    public Date getDate_task() {
         return date_task;
     }
-    public void setDateTask(Date date_task) {
+    public void setDate_task(Date date_task) {
         this.date_task = date_task;
     }
-    public String getNameOfTask() {
+    public String getName_of_task() {
         return name_of_task;
     }
-    public void setNameOfTask(String name_of_task) {
+    public void setName_of_task(String name_of_task) {
         this.name_of_task = name_of_task;
     }
 

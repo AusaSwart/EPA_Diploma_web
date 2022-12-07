@@ -10,7 +10,6 @@ import java.util.Set;
 public class Employee {
     @Id
     @Column(name = "id")
-
     private long id;
     private int privilege;
     private long id_dep;

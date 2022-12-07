@@ -22,7 +22,6 @@ public class EmployeeTask {
     @JoinColumn(name = "id_task", nullable = false, insertable = false, updatable = false)
     private Task task;
 
-
     public EmployeeTask() {
     }
 
@@ -50,22 +49,22 @@ public class EmployeeTask {
     public void setId_executor(long id_executor) {
         this.id_executor = id_executor;
     }
-    public long getIdEmployee() {
+    public long getId_employee() {
         return id_employee;
     }
-    public void setIdEmployee(long id_employee) {
+    public void setId_employee(long id_employee) {
         this.id_employee = id_employee;
     }
-    public long getIdTask() {
+    public long getId_task() {
         return id_task;
     }
-    public void setIdTask(long id_task) {
+    public void setId_task(long id_task) {
         this.id_task = id_task;
     }
-    public String getCommentTE() {
+    public String getComment_te() {
         return comment_te;
     }
-    public void setCommentTE(String comment_te) {
+    public void setComment_te(String comment_te) {
         this.comment_te = comment_te;
     }
 

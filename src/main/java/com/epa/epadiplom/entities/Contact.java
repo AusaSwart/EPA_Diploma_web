@@ -44,19 +44,27 @@ public class Contact {
     public void setId(long id_main_info_contact) {
         this.id_main_info_contact = id_main_info_contact;
     }
-    public String getLocationStreet() {return location_street;}
-    public void setLocationStreet(String location_street) {
+    public String getLocation_street() {
+        return location_street;
+    }
+    public void setLocation_street(String location_street) {
         this.location_street = location_street;
     }
-    public long getWorkNumber() {return work_number;}
-    public void setWorkNumber(long work_number) {
+    public long getWork_number() {
+        return work_number;
+    }
+    public void setWork_number(long work_number) {
         this.work_number = work_number;
     }
-    public long getPersonalNumber() {return personal_number;}
-    public void setPersonalNumber(long personal_number) {
+    public long getPersonal_number() {
+        return personal_number;
+    }
+    public void setPersonal_number(long personal_number) {
         this.personal_number = personal_number;
     }
-    public String getMail() {return mail;}
+    public String getMail() {
+        return mail;
+    }
     public void setMail(String mail) {
         this.mail = mail;
     }

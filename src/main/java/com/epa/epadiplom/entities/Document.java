@@ -31,14 +31,16 @@ public class Document {
     public void setId(long id) {
         this.id = id;
     }
-    public long getId_LS() {
+    public long getId_ls() {
         return id_ls;
     }
-    public void setId_LS(long id_ls) {
+    public void setId_ls(long id_ls) {
         this.id_ls = id_ls;
     }
-    public String getBodyDoc() {return body_doc;}
-    public void setBodyDoc(String body_doc) {
+    public String getBody_doc() {
+        return body_doc;
+    }
+    public void setBody_doc(String body_doc) {
         this.body_doc = body_doc;
     }
 

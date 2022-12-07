@@ -41,16 +41,16 @@ public class JobEmployee {
     public void setId(long id) {
         this.id = id;
     }
-    public long getIdEmployee() {
+    public long getId_employee() {
         return id_employee;
     }
-    public void setIdEmployee(long id_employee) {
+    public void setId_employee(long id_employee) {
         this.id_employee = id_employee;
     }
-    public long getIdJobTitle() {
+    public long getId_job_title() {
         return id_job_title;
     }
-    public void setIdJobTitle(long id_job_title) {
+    public void setId_job_title(long id_job_title) {
         this.id_job_title = id_job_title;
     }
 
