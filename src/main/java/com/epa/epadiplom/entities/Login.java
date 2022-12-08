@@ -4,21 +4,19 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "login")
 public class Login {
     @Id
-    @Column(name = "id_main_info_login")
     private long id_main_info_login;
     private String login_user;
     private String password_user;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
-    @JoinColumn(name = "id_main_info_login")
+    @JoinColumn(name = "id_main_info_login", referencedColumnName = "id")
     private Employee employee;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
-    @JoinColumn(name = "id_main_info_login")
+    @JoinColumn(name = "id_main_info_login", referencedColumnName = "id_main_info")
     private MainInfo mainInfo;
 
     public Login() {

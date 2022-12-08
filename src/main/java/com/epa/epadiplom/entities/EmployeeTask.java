@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "emp_task")
 public class EmployeeTask {
 
     @Id
-    @Column(name = "id")
     private long id;
     private long id_executor;
     private long id_employee;

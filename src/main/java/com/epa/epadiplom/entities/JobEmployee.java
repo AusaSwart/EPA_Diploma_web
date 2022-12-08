@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "job_employee")
 public class JobEmployee {
 
     @Id
-    @Column(name = "id")
     private long id;
     private long id_employee;
     private long id_job_title;

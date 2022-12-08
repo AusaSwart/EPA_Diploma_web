@@ -7,11 +7,9 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "task")
 public class Task {
 
     @Id
-    @Column(name = "id")
     private long id;
     private Date date_task;
     private String name_of_task;

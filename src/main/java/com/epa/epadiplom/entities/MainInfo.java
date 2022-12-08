@@ -5,10 +5,8 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "main_info")
 public class MainInfo {
     @Id
-    @Column(name = "id_main_info")
     private long id_main_info;
     private String first_name;
     private String middle_name;
@@ -17,7 +15,7 @@ public class MainInfo {
     private Date birth_d;
     private Date entry_d;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "id_main_info")
     private Employee employee;

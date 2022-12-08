@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "contact")
 public class Contact {
     @Id
-    @Column(name = "id_main_info_contact")
     private long id_main_info_contact;
     private String location_street;
     private long work_number;
@@ -16,7 +14,7 @@ public class Contact {
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "id_main_info_contact")
+    @JoinColumn(name = "id_main_info")
     private Employee employee;
     @OneToOne
     @MapsId

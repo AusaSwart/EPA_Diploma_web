@@ -6,10 +6,8 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "employee")
 public class Employee {
     @Id
-    @Column(name = "id")
     private long id;
     private int privilege;
     private long id_dep;

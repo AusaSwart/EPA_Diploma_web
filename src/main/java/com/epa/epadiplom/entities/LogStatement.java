@@ -4,10 +4,8 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "log_statement")
 public class LogStatement {
     @Id
-    @Column(name = "id")
     private long id;
     private long id_approver;
     private long id_employee;
