@@ -1,12 +1,13 @@
 //package com.epa.epadiplom.controllers;
 //
+//import com.epa.epadiplom.repositories.DocumentRepo;
 //import org.springframework.stereotype.Controller;
 //
 //@Controller
 //public class DocumentController {
-//    public final DocumentController documentController;
+//    public final DocumentRepo documentRepo;
 //
-//    public DocumentController(DocumentController documentController) {
-//        this.documentController = documentController;
+//    public DocumentController(DocumentRepo documentRepo) {
+//        this.documentRepo = documentRepo;
 //    }
 //}

@@ -1,12 +1,13 @@
 //package com.epa.epadiplom.controllers;
 //
+//import com.epa.epadiplom.repositories.EmployeeTaskRepo;
 //import org.springframework.stereotype.Controller;
 //
 //@Controller
 //public class EmployeeTaskController {
-//    public final EmployeeTaskController employeeTaskController;
+//    public final EmployeeTaskRepo employeeTaskRepo;
 //
-//    public EmployeeTaskController(EmployeeTaskController employeeTaskController) {
-//        this.employeeTaskController = employeeTaskController;
+//    public EmployeeTaskController(EmployeeTaskRepo employeeTaskRepo) {
+//        this.employeeTaskRepo = employeeTaskRepo;
 //    }
 //}

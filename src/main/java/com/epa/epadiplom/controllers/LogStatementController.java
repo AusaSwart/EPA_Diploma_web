@@ -1,12 +1,13 @@
 //package com.epa.epadiplom.controllers;
 //
+//import com.epa.epadiplom.repositories.LogStatementRepo;
 //import org.springframework.stereotype.Controller;
 //
 //@Controller
 //public class LogStatementController {
-//    public final LogStatementController logStatementController;
+//    public final LogStatementRepo logStatementRepo;
 //
-//    public LogStatementController(LogStatementController logStatementController) {
-//        this.logStatementController = logStatementController;
+//    public LogStatementController(LogStatementRepo logStatementRepo) {
+//        this.logStatementRepo = logStatementRepo;
 //    }
 //}

@@ -1,12 +1,13 @@
 //package com.epa.epadiplom.controllers;
 //
+//import com.epa.epadiplom.repositories.EventRepo;
 //import org.springframework.stereotype.Controller;
 //
 //@Controller
 //public class EventController {
-//    public final EventController eventController;
+//    public final EventRepo eventRepo;
 //
-//    public EventController(EventController eventController) {
-//        this.eventController = eventController;
+//    public EventController(EventRepo eventRepo) {
+//        this.eventRepo = eventRepo;
 //    }
 //}

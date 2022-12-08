@@ -1,12 +1,13 @@
 //package com.epa.epadiplom.controllers;
 //
+//import com.epa.epadiplom.repositories.MainInfoRepo;
 //import org.springframework.stereotype.Controller;
 //
 //@Controller
 //public class MainInfoController {
-//    public final MainInfoController mainInfoController;
+//    public final MainInfoRepo mainInfoRepo;
 //
-//    public MainInfoController(MainInfoController mainInfoController) {
-//        this.mainInfoController = mainInfoController;
+//    public MainInfoController(MainInfoRepo mainInfoRepo) {
+//        this.mainInfoRepo = mainInfoRepo;
 //    }
 //}
