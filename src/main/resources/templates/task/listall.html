@@ -1,24 +1,24 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Task</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Tasks list</h1>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task</title>
+</head>
+<body>
+<h1>Tasks list</h1>
+<a href="http://localhost:8080/"> Go back </a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.date_task}"></td>
+        <td th:text="${task.name_of_task}"></td>
+    </tr>
+</table>
 
-<!--<table>-->
-<!--    <tr>-->
-<!--        <th>ID</th>-->
-<!--        <th>Date</th>-->
-<!--        <th>Name</th>-->
-<!--    </tr>-->
-<!--    <tr th:each="task : ${tasks}">-->
-<!--        <td th:text="${task.id}"></td>-->
-<!--        <td th:text="${task.date_task}"></td>-->
-<!--        <td th:text="${task.name_of_task}"></td>-->
-<!--    </tr>-->
-<!--</table>-->
-
-<!--</body>-->
-<!--</html>-->
+</body>
+</html>
