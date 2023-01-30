@@ -5,23 +5,22 @@ import java.util.*;
 
 @Entity
 public class Event {
+
+    //Columns in table Event
     @Id
     private long id;
     private String type_of_event;
     private String comment_fe;
     private Date date_of_event;
 
-    @OneToMany(mappedBy = "event")
-    private Set<NoticeEvent> noticeEvents = new HashSet<>();
 
+
+
+
+
+
+    // Getters, setters, constructors for Event
     public Event() {
-    }
-
-    public Set<NoticeEvent> getNoticeEvents() {
-        return noticeEvents;
-    }
-    public void setNoticeEvents(Set<NoticeEvent> noticeEvents) {
-        this.noticeEvents = noticeEvents;
     }
     public long getId() {
         return id;
@@ -48,6 +47,8 @@ public class Event {
         this.date_of_event = date_of_event;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "Event {" +

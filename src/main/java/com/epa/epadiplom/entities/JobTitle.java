@@ -8,21 +8,18 @@ import java.util.Set;
 
 @Entity
 public class JobTitle {
+
+    //Columns in table JobTitle
     @Id
     private long id;
     private String job_title_name;
 
-    @OneToMany(mappedBy = "jobTitle")
-    private Set<JobEmployee> jobEmployees = new HashSet<>();
 
+
+
+
+    // Getters, setters, constructors for JobTitle
     public JobTitle() {
-    }
-
-    public Set<JobEmployee> getJobEmployees() {
-        return jobEmployees;
-    }
-    public void setJobEmployees(Set<JobEmployee> jobEmployees) {
-        this.jobEmployees = jobEmployees;
     }
     public long getId() {
         return id;
@@ -37,6 +34,8 @@ public class JobTitle {
         this.job_title_name = job_title_name;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "JobTitle {" +

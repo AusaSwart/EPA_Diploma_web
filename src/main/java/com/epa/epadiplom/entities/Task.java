@@ -9,26 +9,22 @@ import java.util.Set;
 @Entity
 public class Task {
 
+    //Columns in table Task
     @Id
     private long id;
     private Date date_task;
     private String name_of_task;
 
-    @OneToMany(mappedBy = "task")
-    private Set<EmployeeTask> employeeTasks = new HashSet<>();
 
+
+
+
+    // Getters, setters, constructors for Task
     public Task() {
     }
     public Task(Date date_task, String name_of_task, Set<Employee> employees) {
         this.date_task = date_task;
         this.name_of_task = name_of_task;
-    }
-
-    public Set<EmployeeTask> getEmployeeTasks() {
-        return employeeTasks;
-    }
-    public void setEmployeeTasks(Set<EmployeeTask> employeeTasks) {
-        this.employeeTasks = employeeTasks;
     }
     public long getId() {
         return id;
@@ -49,6 +45,8 @@ public class Task {
         this.name_of_task = name_of_task;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "Task {" +

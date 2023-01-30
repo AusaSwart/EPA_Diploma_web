@@ -5,6 +5,8 @@ import java.util.Objects;
 
 @Entity
 public class Contact {
+
+    //Columns in table Contact
     @Id
     private long id_main_info_contact;
     private String location_street;
@@ -12,29 +14,12 @@ public class Contact {
     private long personal_number;
     private String mail;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id_main_info")
-    private Employee employee;
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id_main_info_contact")
-    private MainInfo mainInfo;
 
+
+
+
+    // Getters, setters, constructors for Contact
     public Contact() {
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-    public MainInfo getMainInfo() {
-        return mainInfo;
-    }
-    public void setMainInfo(MainInfo mainInfo) {
-        this.mainInfo = mainInfo;
     }
     public long getId() {
         return id_main_info_contact;
@@ -67,6 +52,8 @@ public class Contact {
         this.mail = mail;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "Contact {" +

@@ -5,6 +5,8 @@ import java.util.*;
 
 @Entity
 public class LogStatement {
+
+    //Columns in table LogStatement
     @Id
     private long id;
     private long id_approver;
@@ -16,26 +18,12 @@ public class LogStatement {
     private Date date_leave;
     private Date date_of_ls;
 
-    @OneToMany(mappedBy = "logStatement")
-    private Set<Document> documents = new HashSet<>();
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
-    private Employee employee;
 
+
+
+
+    // Getters, setters, constructors for LogStatement
     public LogStatement() {
-    }
-
-    public Set<Document> getDocuments() {
-        return documents;
-    }
-    public void setDocuments(Set<Document> documents) {
-        this.documents = documents;
-    }
-    public Employee getEmployee() {
-        return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
     }
     public long getId() {
         return id;
@@ -92,6 +80,8 @@ public class LogStatement {
         this.date_of_ls = date_of_ls;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "LogStatement {" +

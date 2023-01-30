@@ -5,23 +5,19 @@ import java.util.Objects;
 
 @Entity
 public class Document {
+
+    //Columns in table Document
     @Id
     private long id;
     private long id_ls;
     private String body_doc;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_ls", nullable = false, insertable = false, updatable = false)
-    private LogStatement logStatement;
 
+
+
+
+    // Getters, setters, constructors for Contact
     public Document() {
-    }
-
-    public LogStatement getLogStatement() {
-        return logStatement;
-    }
-    public void setLogStatement(LogStatement logStatement) {
-        this.logStatement = logStatement;
     }
     public long getId() {
         return id;
@@ -42,6 +38,8 @@ public class Document {
         this.body_doc = body_doc;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "Document {" +

@@ -5,34 +5,20 @@ import java.util.Objects;
 
 @Entity
 public class Login {
+
+    //Columns in table Login
     @Id
     private long id_main_info_login;
     private String login_user;
     private String password_user;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "id_main_info_login", referencedColumnName = "id")
-    private Employee employee;
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "id_main_info_login", referencedColumnName = "id_main_info")
-    private MainInfo mainInfo;
 
+
+
+
+
+    // Getters, setters, constructors for Login
     public Login() {
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-    public MainInfo getMainInfo() {
-        return mainInfo;
-    }
-    public void setMainInfo(MainInfo mainInfo) {
-        this.mainInfo = mainInfo;
     }
     public long getId() {
         return id_main_info_login;
@@ -53,6 +39,8 @@ public class Login {
         this.password_user = password_user;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "Login {" +

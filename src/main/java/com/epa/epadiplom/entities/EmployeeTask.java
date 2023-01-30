@@ -6,6 +6,7 @@ import java.util.Objects;
 @Entity
 public class EmployeeTask {
 
+    //Columns in table EmployeeTask
     @Id
     private long id;
     private long id_executor;
@@ -13,27 +14,15 @@ public class EmployeeTask {
     private long id_task;
     private String comment_te;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
-    private Employee employee;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_task", nullable = false, insertable = false, updatable = false)
-    private Task task;
 
+
+
+
+
+
+
+    // Getters, setters, constructors for EmployeeTask
     public EmployeeTask() {
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-    public Task getTask() {
-        return task;
-    }
-    public void setTask(Task task) {
-        this.task = task;
     }
     public long getId() {
         return id;
@@ -66,6 +55,8 @@ public class EmployeeTask {
         this.comment_te = comment_te;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "EmployeeTask {" +

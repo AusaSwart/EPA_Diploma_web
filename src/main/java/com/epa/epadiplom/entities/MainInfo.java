@@ -6,6 +6,8 @@ import java.util.Objects;
 
 @Entity
 public class MainInfo {
+
+    //Columns in table MainInfo
     @Id
     private long id_main_info;
     private String first_name;
@@ -15,37 +17,10 @@ public class MainInfo {
     private Date birth_d;
     private Date entry_d;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "id_main_info")
-    private Employee employee;
-    @OneToOne(mappedBy = "mainInfo", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Contact contact;
-    @OneToOne(mappedBy = "mainInfo", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Login login;
 
+
+    // Getters, setters, constructors for MainInfo
     public MainInfo() {
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-    public Contact getContact() {
-        return contact;
-    }
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-    public Login getLogin() {
-        return login;
-    }
-    public void setLogin(Login login) {
-        this.login = login;
     }
     public long getId() {
         return id_main_info;
@@ -90,6 +65,8 @@ public class MainInfo {
         this.entry_d = entry_d;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "MainInfo {" +

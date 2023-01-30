@@ -2,26 +2,32 @@ package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 public class Department {
+
+    //Columns in table Department
     @Id
     private long id;
     private String name_dep;
 
-    @OneToMany(mappedBy = "department")
-    private Set<Employee> employees = new HashSet<>();
 
-    public Department() {
-    }
-
+    //Connection to entity Employee
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Employee> employees = new LinkedHashSet<>();
     public Set<Employee> getEmployees() {
         return employees;
     }
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+
+
+    // Getters, setters, constructors for Department
+    public Department() {
     }
     public long getId() {
         return id;
@@ -36,6 +42,8 @@ public class Department {
         this.name_dep = name_dep;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "Department {" +

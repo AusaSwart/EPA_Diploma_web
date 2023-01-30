@@ -5,33 +5,20 @@ import java.util.Objects;
 
 @Entity
 public class NoticeEvent {
+
+    //Columns in table NoticeEvent
     @Id
     private long id;
     private long id_recipient;
     private long id_event;
     private long id_employee;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
-    private Employee employee;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_event", nullable = false, insertable = false, updatable = false)
-    private Event event;
 
+
+
+
+    // Getters, setters, constructors for NoticeEvent
     public NoticeEvent() {
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-    public Event getEvent() {
-        return event;
-    }
-    public void setEvent(Event event) {
-        this.event = event;
     }
     public long getId() {
         return id;
@@ -58,6 +45,8 @@ public class NoticeEvent {
         this.id_employee = id_employee;
     }
 
+
+    //Standard methods
     @Override
     public String toString() {
         return "NoticeEvent {" +
