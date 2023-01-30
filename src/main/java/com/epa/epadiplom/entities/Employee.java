@@ -1,7 +1,7 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,6 +15,7 @@ public class Employee {
     private long id_dep;
 
 
+    //Connections of entities
     //Connection to entity Department
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_dep")
@@ -26,10 +27,15 @@ public class Employee {
         this.department = department;
     }
 
-
-
-
-
+    //Connection to entity LogStatement
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<LogStatement> logStatements = new LinkedHashSet<>();
+    public Set<LogStatement> getLogStatements() {
+        return logStatements;
+    }
+    public void setLogStatements(Set<LogStatement> logStatements) {
+        this.logStatements = logStatements;
+    }
 
 
     // Getters, setters, constructors for Employee

@@ -19,7 +19,27 @@ public class LogStatement {
     private Date date_of_ls;
 
 
+    //Connections of entities
+    //Connection to entity Document
+    @OneToMany(mappedBy = "logStatement", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Document> documents = new LinkedHashSet<>();
+    public Set<Document> getDocuments() {
+        return documents;
+    }
+    public void setDocuments(Set<Document> documents) {
+        this.documents = documents;
+    }
 
+    //Connection to entity Employee
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_employee")
+    private Employee employee;
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
 
     // Getters, setters, constructors for LogStatement

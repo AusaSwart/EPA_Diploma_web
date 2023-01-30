@@ -13,7 +13,17 @@ public class Document {
     private String body_doc;
 
 
-
+    //Connections of entities
+    //Connection to entity LogStatement
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_ls")
+    private LogStatement logStatement;
+    public LogStatement getLogStatement() {
+        return logStatement;
+    }
+    public void setLogStatement(LogStatement logStatement) {
+        this.logStatement = logStatement;
+    }
 
 
     // Getters, setters, constructors for Contact

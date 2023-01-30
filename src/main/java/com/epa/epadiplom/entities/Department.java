@@ -1,7 +1,6 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -15,6 +14,7 @@ public class Department {
     private String name_dep;
 
 
+    //Connections of entities
     //Connection to entity Employee
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Employee> employees = new LinkedHashSet<>();
