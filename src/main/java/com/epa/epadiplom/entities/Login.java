@@ -4,17 +4,20 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "login")
 public class Login {
 
     //Columns in table Login
     @Id
+    @Column(name = "id_main_info_login")
     private long id_main_info_login;
     private String login_user;
     private String password_user;
 
+
     //Connections of entities
     //Connection to entity Employee
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "id_main_info_login")
     private Employee employee;
     public Employee getEmployee() {

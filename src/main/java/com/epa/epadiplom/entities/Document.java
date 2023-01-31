@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "document")
 public class Document {
 
     //Columns in table Document
     @Id
+    @Column(name = "id")
     private long id;
     private long id_ls;
     private String body_doc;

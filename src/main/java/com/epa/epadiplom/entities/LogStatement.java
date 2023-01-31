@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "log_statement")
 public class LogStatement {
 
     //Columns in table LogStatement
     @Id
+    @Column(name = "id")
     private long id;
     private long id_employee;
     private long id_approver;

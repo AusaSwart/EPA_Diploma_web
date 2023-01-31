@@ -5,10 +5,12 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "main_info")
 public class MainInfo {
 
     //Columns in table MainInfo
     @Id
+    @Column(name = "id_main_info")
     private long id_main_info;
     private String first_name;
     private String middle_name;
@@ -21,7 +23,8 @@ public class MainInfo {
     //Connections of entities
     //Connection to entity Employee
     @OneToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id_main_info")
+    @MapsId
+    @JoinColumn(name = "id_main_info")
     private Employee employee;
     public Employee getEmployee() {
         return employee;

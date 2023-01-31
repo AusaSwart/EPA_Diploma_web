@@ -8,10 +8,12 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "job_title")
 public class JobTitle {
 
     //Columns in table JobTitle
     @Id
+    @Column(name = "id")
     private long id;
     private String job_title_name;
 

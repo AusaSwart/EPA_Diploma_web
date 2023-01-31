@@ -6,10 +6,12 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "department")
 public class Department {
 
     //Columns in table Department
     @Id
+    @Column(name = "id")
     private long id;
     private String name_dep;
 

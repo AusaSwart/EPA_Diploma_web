@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "event")
 public class Event {
 
     //Columns in table Event
     @Id
+    @Column(name = "id")
     private long id;
     private String type_of_event;
     private String comment_fe;

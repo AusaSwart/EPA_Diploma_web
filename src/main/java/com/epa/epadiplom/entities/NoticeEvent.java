@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "notice_event")
 public class NoticeEvent {
 
     //Columns in table NoticeEvent
     @Id
+    @Column(name = "id")
     private long id;
     private long id_recipient;
     private long id_event;
