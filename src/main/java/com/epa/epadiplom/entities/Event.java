@@ -14,9 +14,16 @@ public class Event {
     private Date date_of_event;
 
 
-
-
-
+    //Connections of entities
+    //Connection to entity NoticeEvent
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();
+    public Set<NoticeEvent> getNoticeEvents() {
+        return noticeEvents;
+    }
+    public void setNoticeEvents(Set<NoticeEvent> noticeEvents) {
+        this.noticeEvents = noticeEvents;
+    }
 
 
     // Getters, setters, constructors for Event

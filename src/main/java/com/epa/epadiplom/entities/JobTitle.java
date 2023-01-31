@@ -3,6 +3,7 @@ package com.epa.epadiplom.entities;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -15,7 +16,16 @@ public class JobTitle {
     private String job_title_name;
 
 
-
+    //Connections of entities
+    //Connection to entity JobEmployee
+    @OneToMany(mappedBy = "jobTitle", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<JobEmployee> jobEmployees = new LinkedHashSet<>();
+    public Set<JobEmployee> getJobEmployees() {
+        return jobEmployees;
+    }
+    public void setJobEmployees(Set<JobEmployee> jobEmployees) {
+        this.jobEmployees = jobEmployees;
+    }
 
 
     // Getters, setters, constructors for JobTitle

@@ -3,6 +3,7 @@ package com.epa.epadiplom.entities;
 import jakarta.persistence.*;
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,7 +17,16 @@ public class Task {
     private String name_of_task;
 
 
-
+    //Connections of entities
+    //Connection to entity EmployeeTask
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<EmployeeTask> employeeTasks = new LinkedHashSet<>();
+    public Set<EmployeeTask> getEmployeeTasks() {
+        return employeeTasks;
+    }
+    public void setEmployeeTasks(Set<EmployeeTask> employeeTasks) {
+        this.employeeTasks = employeeTasks;
+    }
 
 
     // Getters, setters, constructors for Task

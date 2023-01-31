@@ -28,13 +28,73 @@ public class Employee {
     }
 
     //Connection to entity LogStatement
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<LogStatement> logStatements = new LinkedHashSet<>();
     public Set<LogStatement> getLogStatements() {
         return logStatements;
     }
     public void setLogStatements(Set<LogStatement> logStatements) {
         this.logStatements = logStatements;
+    }
+
+    //Connection to entity Login
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Login login;
+    public Login getLogin() {
+        return login;
+    }
+    public void setLogin(Login login) {
+        this.login = login;
+    }
+
+    //Connection to entity Contact
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Contact contact;
+    public Contact getContact() {
+        return contact;
+    }
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    //Connection to entity MainInfo
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private MainInfo mainInfo;
+    public MainInfo getMainInfo() {
+        return mainInfo;
+    }
+    public void setMainInfo(MainInfo mainInfo) {
+        this.mainInfo = mainInfo;
+    }
+
+    //Connection to entity JobEmployee
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<JobEmployee> jobEmployees = new LinkedHashSet<>();
+    public Set<JobEmployee> getJobEmployees() {
+        return jobEmployees;
+    }
+    public void setJobEmployees(Set<JobEmployee> jobEmployees) {
+        this.jobEmployees = jobEmployees;
+    }
+
+    //Connection to entity NoticeEvent
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();
+    public Set<NoticeEvent> getNoticeEvents() {
+        return noticeEvents;
+    }
+    public void setNoticeEvents(Set<NoticeEvent> noticeEvents) {
+        this.noticeEvents = noticeEvents;
+    }
+
+    //Connection to entity EmployeeTask
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<EmployeeTask> employeeTasks = new LinkedHashSet<>();
+    public Set<EmployeeTask> getEmployeeTasks() {
+        return employeeTasks;
+    }
+    public void setEmployeeTasks(Set<EmployeeTask> employeeTasks) {
+        this.employeeTasks = employeeTasks;
     }
 
 

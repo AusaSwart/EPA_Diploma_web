@@ -15,7 +15,17 @@ public class Contact {
     private String mail;
 
 
-
+    //Connections of entities
+    //Connection to entity Employee
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_main_info_contact")
+    private Employee employee;
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
 
     // Getters, setters, constructors for Contact

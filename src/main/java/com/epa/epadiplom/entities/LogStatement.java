@@ -9,8 +9,8 @@ public class LogStatement {
     //Columns in table LogStatement
     @Id
     private long id;
-    private long id_approver;
     private long id_employee;
+    private long id_approver;
     private String comment_ls;
     private int days_sum;
     private int type_leave;
@@ -31,8 +31,8 @@ public class LogStatement {
     }
 
     //Connection to entity Employee
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_employee")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_employee", referencedColumnName = "id")
     private Employee employee;
     public Employee getEmployee() {
         return employee;

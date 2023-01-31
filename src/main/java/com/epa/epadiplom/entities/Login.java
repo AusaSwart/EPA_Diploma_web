@@ -12,9 +12,17 @@ public class Login {
     private String login_user;
     private String password_user;
 
-
-
-
+    //Connections of entities
+    //Connection to entity Employee
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "id_main_info_login")
+    private Employee employee;
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
 
     // Getters, setters, constructors for Login

@@ -14,7 +14,28 @@ public class NoticeEvent {
     private long id_employee;
 
 
+    //Connections of entities
+    //Connection to entity Employee
+    @ManyToOne(cascade = CascadeType.ALL)
+    //@JoinColumn(name = "id_employee")
+    private Employee employee;
+    public Employee getEmployee() {
+        return employee;
+    }
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
+    //Connection to entity Event
+    @ManyToOne(cascade = CascadeType.ALL)
+   // @JoinColumn(name = "id_event")
+    private Event event;
+    public Event getEvent() {
+        return event;
+    }
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 
 
     // Getters, setters, constructors for NoticeEvent
