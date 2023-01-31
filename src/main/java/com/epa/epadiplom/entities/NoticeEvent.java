@@ -16,8 +16,8 @@ public class NoticeEvent {
 
     //Connections of entities
     //Connection to entity Employee
-    @ManyToOne(cascade = CascadeType.ALL)
-    //@JoinColumn(name = "id_employee")
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
     private Employee employee;
     public Employee getEmployee() {
         return employee;
@@ -27,8 +27,8 @@ public class NoticeEvent {
     }
 
     //Connection to entity Event
-    @ManyToOne(cascade = CascadeType.ALL)
-   // @JoinColumn(name = "id_event")
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_event", nullable = false, insertable = false, updatable = false)
     private Event event;
     public Event getEvent() {
         return event;

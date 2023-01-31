@@ -18,6 +18,7 @@ public class Contact {
     //Connections of entities
     //Connection to entity Employee
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @MapsId
     @JoinColumn(name = "id_main_info_contact")
     private Employee employee;
     public Employee getEmployee() {

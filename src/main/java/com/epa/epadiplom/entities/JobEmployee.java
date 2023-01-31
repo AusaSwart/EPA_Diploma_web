@@ -14,7 +14,7 @@ public class JobEmployee {
 
     //Connections of entities
     //Connection to entity Employee
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "id_employee")
     private Employee employee;
     public Employee getEmployee() {
@@ -25,7 +25,7 @@ public class JobEmployee {
     }
 
     //Connection to entity JobTitle
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "id_job_title")
     private JobTitle jobTitle;
     public JobTitle getJobTitle() {

@@ -20,7 +20,7 @@ public class MainInfo {
 
     //Connections of entities
     //Connection to entity Employee
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     //@JoinColumn(name = "id_main_info")
     private Employee employee;
     public Employee getEmployee() {

@@ -16,7 +16,7 @@ public class Department {
 
     //Connections of entities
     //Connection to entity Employee
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "department")
     private Set<Employee> employees = new LinkedHashSet<>();
     public Set<Employee> getEmployees() {
         return employees;

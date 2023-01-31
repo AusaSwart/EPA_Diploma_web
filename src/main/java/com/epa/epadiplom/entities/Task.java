@@ -19,7 +19,7 @@ public class Task {
 
     //Connections of entities
     //Connection to entity EmployeeTask
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "task")
     private Set<EmployeeTask> employeeTasks = new LinkedHashSet<>();
     public Set<EmployeeTask> getEmployeeTasks() {
         return employeeTasks;

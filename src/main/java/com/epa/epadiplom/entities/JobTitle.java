@@ -18,7 +18,7 @@ public class JobTitle {
 
     //Connections of entities
     //Connection to entity JobEmployee
-    @OneToMany(mappedBy = "jobTitle", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "jobTitle")
     private Set<JobEmployee> jobEmployees = new LinkedHashSet<>();
     public Set<JobEmployee> getJobEmployees() {
         return jobEmployees;

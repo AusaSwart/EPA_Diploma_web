@@ -21,7 +21,7 @@ public class LogStatement {
 
     //Connections of entities
     //Connection to entity Document
-    @OneToMany(mappedBy = "logStatement", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "logStatement")
     private Set<Document> documents = new LinkedHashSet<>();
     public Set<Document> getDocuments() {
         return documents;
@@ -31,8 +31,8 @@ public class LogStatement {
     }
 
     //Connection to entity Employee
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@JoinColumn(name = "id_employee", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "id_employee", nullable = false, insertable = false, updatable = false)
     private Employee employee;
     public Employee getEmployee() {
         return employee;

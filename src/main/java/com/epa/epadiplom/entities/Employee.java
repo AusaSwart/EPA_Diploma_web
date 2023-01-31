@@ -12,12 +12,13 @@ public class Employee {
     @Id
     private long id;
     private int privilege;
+    @Column(insertable=false, updatable=false)
     private long id_dep;
 
 
     //Connections of entities
     //Connection to entity Department
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_dep")
     private Department department;
     public Department getDepartment() {
@@ -28,7 +29,7 @@ public class Employee {
     }
 
     //Connection to entity LogStatement
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "employee")
     private Set<LogStatement> logStatements = new LinkedHashSet<>();
     public Set<LogStatement> getLogStatements() {
         return logStatements;
@@ -38,7 +39,8 @@ public class Employee {
     }
 
     //Connection to entity Login
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Login login;
     public Login getLogin() {
         return login;
@@ -48,7 +50,8 @@ public class Employee {
     }
 
     //Connection to entity Contact
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Contact contact;
     public Contact getContact() {
         return contact;
@@ -58,7 +61,8 @@ public class Employee {
     }
 
     //Connection to entity MainInfo
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private MainInfo mainInfo;
     public MainInfo getMainInfo() {
         return mainInfo;
@@ -68,7 +72,7 @@ public class Employee {
     }
 
     //Connection to entity JobEmployee
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee")
     private Set<JobEmployee> jobEmployees = new LinkedHashSet<>();
     public Set<JobEmployee> getJobEmployees() {
         return jobEmployees;
@@ -78,7 +82,7 @@ public class Employee {
     }
 
     //Connection to entity NoticeEvent
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee")
     private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();
     public Set<NoticeEvent> getNoticeEvents() {
         return noticeEvents;
@@ -88,7 +92,7 @@ public class Employee {
     }
 
     //Connection to entity EmployeeTask
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee")
     private Set<EmployeeTask> employeeTasks = new LinkedHashSet<>();
     public Set<EmployeeTask> getEmployeeTasks() {
         return employeeTasks;

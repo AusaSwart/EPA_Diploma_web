@@ -15,8 +15,8 @@ public class Document {
 
     //Connections of entities
     //Connection to entity LogStatement
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_ls")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_ls", nullable = false, insertable = false, updatable = false)
     private LogStatement logStatement;
     public LogStatement getLogStatement() {
         return logStatement;
