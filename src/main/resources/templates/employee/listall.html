@@ -9,14 +9,24 @@
 <a href="http://localhost:8080/"> Go back </a>
 <table>
     <tr>
-        <th>ID</th>
-        <th>privilege</th>
-        <th>ID of department</th>
+        <th>|  ID  </th>
+        <th>|  privilege  </th>
+        <th>|  ID of department  </th>
     </tr>
     <tr th:each="employee : ${employees}">
-        <td th:text="${employee.id}"></td>
-        <td th:text="${employee.privilege}"></td>
-        <td th:text="${employee.id_dep}"></td>
+        <td th:text="${  employee.id}"></td>
+        <td th:text="${  employee.privilege}"></td>
+        <td th:text="${  employee.id_dep}"></td>
+    </tr>
+    <tr>
+        <th>|  Last name  </th>
+        <th>|  Middle name  </th>
+        <th>|  First name  </th>
+    </tr>
+    <tr th:each="mainInfo : ${employeesMainInfo}">
+        <td th:text="${  mainInfo.last_name}"></td>
+        <td th:text="${  mainInfo.middle_name}"></td>
+        <td th:text="${  mainInfo.first_name}"></td>
     </tr>
 </table>
 </body>

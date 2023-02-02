@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "log_statement")
+@Table(name = "log_statement", schema = "public", catalog = "EPA")
 public class LogStatement {
 
     //Columns in table LogStatement
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private long id;
     private long id_employee;

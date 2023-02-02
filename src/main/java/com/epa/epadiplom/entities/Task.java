@@ -2,16 +2,17 @@ package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
 import java.sql.Date;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name = "task", schema = "public", catalog = "EPA")
 public class Task {
 
     //Columns in table Task
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private Date date_task;
     private String name_of_task;

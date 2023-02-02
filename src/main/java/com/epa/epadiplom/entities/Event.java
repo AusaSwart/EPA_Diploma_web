@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "event")
+@Table(name = "event", schema = "public", catalog = "EPA")
 public class Event {
 
     //Columns in table Event
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private long id;
     private String type_of_event;

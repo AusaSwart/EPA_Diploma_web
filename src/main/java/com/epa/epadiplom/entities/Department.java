@@ -6,11 +6,12 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "department")
+@Table(name = "department", schema = "public", catalog = "EPA")
 public class Department {
 
     //Columns in table Department
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private long id;
     private String name_dep;

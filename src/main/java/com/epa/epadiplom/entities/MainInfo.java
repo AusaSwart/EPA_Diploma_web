@@ -5,11 +5,12 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "main_info")
+@Table(name = "main_info", schema = "public", catalog = "EPA")
 public class MainInfo {
 
     //Columns in table MainInfo
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_main_info")
     private long id_main_info;
     private String first_name;

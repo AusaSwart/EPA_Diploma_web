@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "emp_task")
+@Table(name = "emp_task", schema = "public", catalog = "EPA")
 public class EmployeeTask {
 
     //Columns in table EmployeeTask
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private long id;
     private long id_executor;

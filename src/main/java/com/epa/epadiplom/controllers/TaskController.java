@@ -11,6 +11,8 @@ public class TaskController {
     public TaskController(TaskRepo taskRepo) {
         this.taskRepo = taskRepo;
     }
+
+    // List of tasks (temporary)
     @GetMapping("/tasks")
     private String getTasks(Model model){
         model.addAttribute("tasks", taskRepo.findAll());

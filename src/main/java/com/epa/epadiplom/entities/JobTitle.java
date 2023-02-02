@@ -8,11 +8,12 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "job_title")
+@Table(name = "job_title", schema = "public", catalog = "EPA")
 public class JobTitle {
 
     //Columns in table JobTitle
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     private long id;
     private String job_title_name;

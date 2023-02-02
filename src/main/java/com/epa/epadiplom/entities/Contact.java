@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "contact")
+@Table(name = "contact", schema = "public", catalog = "EPA")
 public class Contact {
 
     //Columns in table Contact
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_main_info_contact")
     private long id_main_info_contact;
     private String location_street;
