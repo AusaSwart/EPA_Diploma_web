@@ -1,7 +1,9 @@
 package com.epa.epadiplom.repositories;
 
 import com.epa.epadiplom.entities.Department;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DepartmentRepo extends CrudRepository<Department, Long> {
+public interface DepartmentRepo extends JpaRepository<Department, Long> {
+
+
 }

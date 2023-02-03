@@ -1,7 +1,9 @@
 package com.epa.epadiplom.repositories;
 
 import com.epa.epadiplom.entities.Login;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LoginRepo extends CrudRepository<Login, Long> {
+public interface LoginRepo extends JpaRepository<Login, Long> {
+
+
 }

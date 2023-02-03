@@ -16,8 +16,8 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println(employeeRepo.findAll());
+        //System.out.println(employeeRepo.findAll());
         System.out.println("Bootstrap started");
-        System.out.println(" Num of employees " + employeeRepo.count());
+        //System.out.println(" Num of employees " + employeeRepo.count());
     }
 }

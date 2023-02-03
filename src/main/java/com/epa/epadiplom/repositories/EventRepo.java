@@ -1,7 +1,9 @@
 package com.epa.epadiplom.repositories;
 
 import com.epa.epadiplom.entities.Event;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EventRepo extends CrudRepository<Event, Long> {
+public interface EventRepo extends JpaRepository<Event, Long> {
+
+
 }
