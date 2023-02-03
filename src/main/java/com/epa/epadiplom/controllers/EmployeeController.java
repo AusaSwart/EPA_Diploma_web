@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class EmployeeController {
 
     public final EmployeeRepo employeeRepo;
-    public MainInfoRepo mainInfoRepo;
+    public final MainInfoRepo mainInfoRepo;
 
     public EmployeeController(EmployeeRepo employeeRepo, MainInfoRepo mainInfoRepo) {
         this.employeeRepo = employeeRepo;

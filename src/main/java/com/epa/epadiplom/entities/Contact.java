@@ -37,8 +37,10 @@ public class Contact {
 
 
     // Getters, setters, constructors for Contact
-    public Contact(String location_street, long work_number,
-                   long personal_number, String mail) {
+    public Contact(String location_street,
+                   long work_number,
+                   long personal_number,
+                   String mail) {
         this.location_street = location_street;
         this.work_number = work_number;
         this.personal_number = personal_number;

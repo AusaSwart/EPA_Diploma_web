@@ -35,7 +35,8 @@ public class Login {
 
 
     // Getters, setters, constructors for Login
-    public Login(String login_user, String password_user) {
+    public Login(String login_user,
+                 String password_user) {
         this.login_user = login_user;
         this.password_user = password_user;
     }

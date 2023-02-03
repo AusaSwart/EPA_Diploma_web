@@ -47,7 +47,9 @@ public class NoticeEvent {
 
 
     // Getters, setters, constructors for NoticeEvent
-    public NoticeEvent(long id_recipient, long id_event, long id_employee) {
+    public NoticeEvent(long id_recipient,
+                       long id_event,
+                       long id_employee) {
         this.id_recipient = id_recipient;
         this.id_event = id_event;
         this.id_employee = id_employee;

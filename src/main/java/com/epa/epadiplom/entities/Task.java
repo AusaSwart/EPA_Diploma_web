@@ -36,7 +36,8 @@ public class Task {
 
 
     // Getters, setters, constructors for Task
-    public Task(Date date_task, String name_of_task) {
+    public Task(Date date_task,
+                String name_of_task) {
         this.date_task = date_task;
         this.name_of_task = name_of_task;
     }

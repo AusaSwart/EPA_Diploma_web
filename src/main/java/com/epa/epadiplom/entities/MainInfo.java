@@ -41,9 +41,12 @@ public class MainInfo {
 
 
     // Getters, setters, constructors for MainInfo
-    public MainInfo(String first_name, String middle_name,
-                    String last_name, String cabinet_office,
-                    Date birth_d, Date entry_d) {
+    public MainInfo(String first_name,
+                    String middle_name,
+                    String last_name,
+                    String cabinet_office,
+                    Date birth_d,
+                    Date entry_d) {
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
