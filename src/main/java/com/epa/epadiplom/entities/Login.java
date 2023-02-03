@@ -1,15 +1,20 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "login", schema = "public", catalog = "EPA")
 public class Login {
 
     //Columns in table Login
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_main_info_login")
     private long id_main_info_login;
     private String login_user;
@@ -30,7 +35,12 @@ public class Login {
 
 
     // Getters, setters, constructors for Login
-    public Login() {
+    public Login(long id_main_info_login, String login_user,
+                 String password_user, Employee employee) {
+        this.id_main_info_login = id_main_info_login;
+        this.login_user = login_user;
+        this.password_user = password_user;
+        this.employee = employee;
     }
     public long getId() {
         return id_main_info_login;

@@ -1,15 +1,20 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.*;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "log_statement", schema = "public", catalog = "EPA")
 public class LogStatement {
 
     //Columns in table LogStatement
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private long id_employee;
@@ -46,7 +51,21 @@ public class LogStatement {
 
 
     // Getters, setters, constructors for LogStatement
-    public LogStatement() {
+    public LogStatement(long id, long id_employee, long id_approver,
+                        String comment_ls, int days_sum, int type_leave,
+                        int approve, Date date_leave, Date date_of_ls,
+                        Set<Document> documents, Employee employee) {
+        this.id = id;
+        this.id_employee = id_employee;
+        this.id_approver = id_approver;
+        this.comment_ls = comment_ls;
+        this.days_sum = days_sum;
+        this.type_leave = type_leave;
+        this.approve = approve;
+        this.date_leave = date_leave;
+        this.date_of_ls = date_of_ls;
+        this.documents = documents;
+        this.employee = employee;
     }
     public long getId() {
         return id;

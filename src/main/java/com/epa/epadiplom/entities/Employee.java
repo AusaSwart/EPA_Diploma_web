@@ -1,17 +1,22 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "employee", schema = "public", catalog = "EPA")
 public class Employee {
 
     //Columns in table Employee
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private int privilege;
@@ -106,7 +111,21 @@ public class Employee {
 
 
     // Getters, setters, constructors for Employee
-    public Employee() {
+    public Employee(long id, int privilege, long id_dep, Department department,
+                    Set<LogStatement> logStatements, Login login, Contact contact,
+                    MainInfo mainInfo, Set<JobEmployee> jobEmployees,
+                    Set<NoticeEvent> noticeEvents, Set<EmployeeTask> employeeTasks) {
+        this.id = id;
+        this.privilege = privilege;
+        this.id_dep = id_dep;
+        this.department = department;
+        this.logStatements = logStatements;
+        this.login = login;
+        this.contact = contact;
+        this.mainInfo = mainInfo;
+        this.jobEmployees = jobEmployees;
+        this.noticeEvents = noticeEvents;
+        this.employeeTasks = employeeTasks;
     }
     public Employee(int privilege, long id_dep, Set<Task> tasks) {
         this.privilege = privilege;

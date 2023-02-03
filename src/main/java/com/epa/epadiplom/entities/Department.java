@@ -1,17 +1,22 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "department", schema = "public", catalog = "EPA")
 public class Department {
 
     //Columns in table Department
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private String name_dep;
@@ -30,7 +35,11 @@ public class Department {
 
 
     // Getters, setters, constructors for Department
-    public Department() {
+    public Department(long id, String name_dep,
+                      Set<Employee> employees) {
+        this.id = id;
+        this.name_dep = name_dep;
+        this.employees = employees;
     }
     public long getId() {
         return id;

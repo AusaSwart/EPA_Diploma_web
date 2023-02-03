@@ -1,15 +1,20 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "emp_task", schema = "public", catalog = "EPA")
 public class EmployeeTask {
 
     //Columns in table EmployeeTask
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private long id_executor;
@@ -43,7 +48,16 @@ public class EmployeeTask {
 
 
     // Getters, setters, constructors for EmployeeTask
-    public EmployeeTask() {
+    public EmployeeTask(long id, long id_executor,
+                        long id_employee, long id_task, String comment_te,
+                        Employee employee, Task task) {
+        this.id = id;
+        this.id_executor = id_executor;
+        this.id_employee = id_employee;
+        this.id_task = id_task;
+        this.comment_te = comment_te;
+        this.employee = employee;
+        this.task = task;
     }
     public long getId() {
         return id;

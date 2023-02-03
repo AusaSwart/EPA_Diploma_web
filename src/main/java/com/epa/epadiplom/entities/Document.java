@@ -1,15 +1,20 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "document", schema = "public", catalog = "EPA")
 public class Document {
 
     //Columns in table Document
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private long id_ls;
@@ -29,8 +34,13 @@ public class Document {
     }
 
 
-    // Getters, setters, constructors for Contact
-    public Document() {
+    // Getters, setters, constructors for Document
+    public Document(long id, long id_ls, String body_doc,
+                    LogStatement logStatement) {
+        this.id = id;
+        this.id_ls = id_ls;
+        this.body_doc = body_doc;
+        this.logStatement = logStatement;
     }
     public long getId() {
         return id;

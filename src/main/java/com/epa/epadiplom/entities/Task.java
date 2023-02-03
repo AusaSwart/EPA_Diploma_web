@@ -1,18 +1,23 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "task", schema = "public", catalog = "EPA")
 public class Task {
 
     //Columns in table Task
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date date_task;
     private String name_of_task;
@@ -31,7 +36,12 @@ public class Task {
 
 
     // Getters, setters, constructors for Task
-    public Task() {
+    public Task(long id, Date date_task, String name_of_task,
+                Set<EmployeeTask> employeeTasks) {
+        this.id = id;
+        this.date_task = date_task;
+        this.name_of_task = name_of_task;
+        this.employeeTasks = employeeTasks;
     }
     public Task(Date date_task, String name_of_task, Set<Employee> employees) {
         this.date_task = date_task;

@@ -1,15 +1,20 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.Objects;
 
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "notice_event", schema = "public", catalog = "EPA")
 public class NoticeEvent {
 
     //Columns in table NoticeEvent
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     private long id_recipient;
@@ -42,7 +47,14 @@ public class NoticeEvent {
 
 
     // Getters, setters, constructors for NoticeEvent
-    public NoticeEvent() {
+    public NoticeEvent(long id, long id_recipient, long id_event,
+                       long id_employee, Employee employee, Event event) {
+        this.id = id;
+        this.id_recipient = id_recipient;
+        this.id_event = id_event;
+        this.id_employee = id_employee;
+        this.employee = employee;
+        this.event = event;
     }
     public long getId() {
         return id;
