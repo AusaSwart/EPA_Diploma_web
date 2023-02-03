@@ -51,11 +51,9 @@ public class LogStatement {
 
 
     // Getters, setters, constructors for LogStatement
-    public LogStatement(long id, long id_employee, long id_approver,
+    public LogStatement(long id_employee, long id_approver,
                         String comment_ls, int days_sum, int type_leave,
-                        int approve, Date date_leave, Date date_of_ls,
-                        Set<Document> documents, Employee employee) {
-        this.id = id;
+                        int approve, Date date_leave, Date date_of_ls) {
         this.id_employee = id_employee;
         this.id_approver = id_approver;
         this.comment_ls = comment_ls;
@@ -64,8 +62,6 @@ public class LogStatement {
         this.approve = approve;
         this.date_leave = date_leave;
         this.date_of_ls = date_of_ls;
-        this.documents = documents;
-        this.employee = employee;
     }
     public long getId() {
         return id;

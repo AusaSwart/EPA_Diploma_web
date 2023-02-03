@@ -37,15 +37,12 @@ public class Contact {
 
 
     // Getters, setters, constructors for Contact
-    public Contact(long id_main_info_contact, String location_street,
-                   long work_number, long personal_number,
-                   String mail, Employee employee) {
-        this.id_main_info_contact = id_main_info_contact;
+    public Contact(String location_street, long work_number,
+                   long personal_number, String mail) {
         this.location_street = location_street;
         this.work_number = work_number;
         this.personal_number = personal_number;
         this.mail = mail;
-        this.employee = employee;
     }
     public long getId() {
         return id_main_info_contact;

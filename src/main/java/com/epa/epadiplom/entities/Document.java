@@ -35,12 +35,9 @@ public class Document {
 
 
     // Getters, setters, constructors for Document
-    public Document(long id, long id_ls, String body_doc,
-                    LogStatement logStatement) {
-        this.id = id;
+    public Document(long id_ls, String body_doc) {
         this.id_ls = id_ls;
         this.body_doc = body_doc;
-        this.logStatement = logStatement;
     }
     public long getId() {
         return id;

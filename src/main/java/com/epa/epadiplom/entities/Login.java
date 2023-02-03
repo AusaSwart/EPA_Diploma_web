@@ -35,12 +35,9 @@ public class Login {
 
 
     // Getters, setters, constructors for Login
-    public Login(long id_main_info_login, String login_user,
-                 String password_user, Employee employee) {
-        this.id_main_info_login = id_main_info_login;
+    public Login(String login_user, String password_user) {
         this.login_user = login_user;
         this.password_user = password_user;
-        this.employee = employee;
     }
     public long getId() {
         return id_main_info_login;

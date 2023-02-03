@@ -35,11 +35,8 @@ public class Department {
 
 
     // Getters, setters, constructors for Department
-    public Department(long id, String name_dep,
-                      Set<Employee> employees) {
-        this.id = id;
+    public Department(String name_dep) {
         this.name_dep = name_dep;
-        this.employees = employees;
     }
     public long getId() {
         return id;

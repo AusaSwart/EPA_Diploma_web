@@ -36,14 +36,7 @@ public class Task {
 
 
     // Getters, setters, constructors for Task
-    public Task(long id, Date date_task, String name_of_task,
-                Set<EmployeeTask> employeeTasks) {
-        this.id = id;
-        this.date_task = date_task;
-        this.name_of_task = name_of_task;
-        this.employeeTasks = employeeTasks;
-    }
-    public Task(Date date_task, String name_of_task, Set<Employee> employees) {
+    public Task(Date date_task, String name_of_task) {
         this.date_task = date_task;
         this.name_of_task = name_of_task;
     }

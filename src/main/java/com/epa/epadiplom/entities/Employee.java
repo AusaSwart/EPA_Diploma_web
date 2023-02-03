@@ -111,21 +111,9 @@ public class Employee {
 
 
     // Getters, setters, constructors for Employee
-    public Employee(long id, int privilege, long id_dep, Department department,
-                    Set<LogStatement> logStatements, Login login, Contact contact,
-                    MainInfo mainInfo, Set<JobEmployee> jobEmployees,
-                    Set<NoticeEvent> noticeEvents, Set<EmployeeTask> employeeTasks) {
-        this.id = id;
+    public Employee(int privilege, long id_dep) {
         this.privilege = privilege;
         this.id_dep = id_dep;
-        this.department = department;
-        this.logStatements = logStatements;
-        this.login = login;
-        this.contact = contact;
-        this.mainInfo = mainInfo;
-        this.jobEmployees = jobEmployees;
-        this.noticeEvents = noticeEvents;
-        this.employeeTasks = employeeTasks;
     }
     public Employee(int privilege, long id_dep, Set<Task> tasks) {
         this.privilege = privilege;

@@ -48,16 +48,12 @@ public class EmployeeTask {
 
 
     // Getters, setters, constructors for EmployeeTask
-    public EmployeeTask(long id, long id_executor,
-                        long id_employee, long id_task, String comment_te,
-                        Employee employee, Task task) {
-        this.id = id;
+    public EmployeeTask(long id_executor, long id_employee,
+                        long id_task, String comment_te) {
         this.id_executor = id_executor;
         this.id_employee = id_employee;
         this.id_task = id_task;
         this.comment_te = comment_te;
-        this.employee = employee;
-        this.task = task;
     }
     public long getId() {
         return id;

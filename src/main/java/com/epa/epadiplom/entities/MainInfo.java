@@ -41,18 +41,15 @@ public class MainInfo {
 
 
     // Getters, setters, constructors for MainInfo
-    public MainInfo(long id_main_info, String first_name,
-                    String middle_name, String last_name,
-                    String cabinet_office, Date birth_d,
-                    Date entry_d, Employee employee) {
-        this.id_main_info = id_main_info;
+    public MainInfo(String first_name, String middle_name,
+                    String last_name, String cabinet_office,
+                    Date birth_d, Date entry_d) {
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
         this.cabinet_office = cabinet_office;
         this.birth_d = birth_d;
         this.entry_d = entry_d;
-        this.employee = employee;
     }
     public long getId() {
         return id_main_info;

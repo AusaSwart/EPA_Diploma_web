@@ -35,11 +35,8 @@ public class JobTitle {
 
 
     // Getters, setters, constructors for JobTitle
-    public JobTitle(long id, String job_title_name,
-                    Set<JobEmployee> jobEmployees) {
-        this.id = id;
+    public JobTitle(String job_title_name) {
         this.job_title_name = job_title_name;
-        this.jobEmployees = jobEmployees;
     }
     public long getId() {
         return id;

@@ -45,14 +45,9 @@ public class JobEmployee {
 
 
     // Getters, setters, constructors for JobEmployee
-    public JobEmployee(long id, long id_employee,
-                       long id_job_title, Employee employee,
-                       JobTitle jobTitle) {
-        this.id = id;
+    public JobEmployee(long id_employee, long id_job_title) {
         this.id_employee = id_employee;
         this.id_job_title = id_job_title;
-        this.employee = employee;
-        this.jobTitle = jobTitle;
     }
     public long getId() {
         return id;
