@@ -17,10 +17,9 @@ public class EmployeeTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private long id_executor;
     private long id_employee;
     private long id_task;
-    private String comment_te;
+
 
 
     //Connections of entities
@@ -48,26 +47,16 @@ public class EmployeeTask {
 
 
     // Getters, setters, constructors for EmployeeTask
-    public EmployeeTask(long id_executor,
-                        long id_employee,
-                        long id_task,
-                        String comment_te) {
-        this.id_executor = id_executor;
+    public EmployeeTask(long id_employee,
+                        long id_task) {
         this.id_employee = id_employee;
         this.id_task = id_task;
-        this.comment_te = comment_te;
     }
     public long getId() {
         return id;
     }
     public void setId(long id) {
         this.id = id;
-    }
-    public long getId_executor() {
-        return id_executor;
-    }
-    public void setId_executor(long id_executor) {
-        this.id_executor = id_executor;
     }
     public long getId_employee() {
         return id_employee;
@@ -81,22 +70,14 @@ public class EmployeeTask {
     public void setId_task(long id_task) {
         this.id_task = id_task;
     }
-    public String getComment_te() {
-        return comment_te;
-    }
-    public void setComment_te(String comment_te) {
-        this.comment_te = comment_te;
-    }
 
 
     //Standard methods
     @Override
     public String toString() {
         return "EmployeeTask {" +
-                "id_executor = " + id_executor +
                 ", id_employee = " + id_employee +
                 ", id_task = " + id_task +
-                ", comment_te = '" + comment_te + '\'' +
                 '}';
     }
     @Override
@@ -104,11 +85,11 @@ public class EmployeeTask {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EmployeeTask that = (EmployeeTask) o;
-        return id_executor == that.id_executor;
+        return id == that.id;
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id_executor);
+        return Objects.hash(id);
     }
 
 }

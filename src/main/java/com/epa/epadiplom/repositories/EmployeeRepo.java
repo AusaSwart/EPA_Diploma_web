@@ -9,4 +9,6 @@ public interface EmployeeRepo
         extends JpaRepository<Employee, Long> {
     // Here we're writing more complicated methods for BD for Employee table
     // Also connect w/ standard methods
+
+
 }

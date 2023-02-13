@@ -21,6 +21,8 @@ public class Task {
     private long id;
     private Date date_task;
     private String name_of_task;
+    private String comment_te;
+    private long id_executor;
 
 
     //Connections of entities
@@ -37,9 +39,13 @@ public class Task {
 
     // Getters, setters, constructors for Task
     public Task(Date date_task,
-                String name_of_task) {
+                String name_of_task,
+                String comment_te,
+                long id_executor) {
         this.date_task = date_task;
         this.name_of_task = name_of_task;
+        this.comment_te = comment_te;
+        this.id_executor = id_executor;
     }
     public long getId() {
         return id;
@@ -58,6 +64,18 @@ public class Task {
     }
     public void setName_of_task(String name_of_task) {
         this.name_of_task = name_of_task;
+    }
+    public String getComment_te() {
+        return comment_te;
+    }
+    public void setComment_te(String comment_te) {
+        this.comment_te = comment_te;
+    }
+    public long getId_executor() {
+        return id_executor;
+    }
+    public void setId_executor(long id_executor) {
+        this.id_executor = id_executor;
     }
 
 
