@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MAINstartPageController {
 
     // Main page (temporary)
-    @GetMapping("/")
+    @GetMapping("/api/v1/auth/main")
     public String getIndex(){
-        return "main/index";
+        return "api/v1/auth/main/index";
     }
 
 

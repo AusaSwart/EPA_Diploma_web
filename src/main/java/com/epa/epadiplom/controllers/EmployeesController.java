@@ -13,10 +13,10 @@ public class EmployeesController {
     }
 
     // Page w/ list of employees
-    @RequestMapping("/employees")
+    @RequestMapping("/api/v1//employees")
     public String getEmployees( Model model ){
         model.addAttribute("employees_view", employeesViewRepo.findAll());
-        return "employee/listall";
+        return "api/v1/employee/listall";
     }
 
 }
