@@ -19,7 +19,6 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private int privilege;
     @Column(insertable=false, updatable=false)
     private long id_dep;
 
@@ -111,9 +110,7 @@ public class Employee {
 
 
     // Getters, setters, constructors for Employee
-    public Employee(int privilege,
-                    long id_dep) {
-        this.privilege = privilege;
+    public Employee(long id_dep) {
         this.id_dep = id_dep;
     }
     public long getId() {
@@ -121,12 +118,6 @@ public class Employee {
     }
     public void setId(long id) {
         this.id = id;
-    }
-    public int getPrivilege() {
-        return privilege;
-    }
-    public void setPrivilege(int privilege) {
-        this.privilege = privilege;
     }
     public long getId_dep() {
         return id_dep;
@@ -141,7 +132,6 @@ public class Employee {
     public String toString() {
         return "Employee {" +
                 "id = " + id +
-                ", privilege = " + privilege +
                 ", id_dep = " + id_dep +
                 '}';
     }

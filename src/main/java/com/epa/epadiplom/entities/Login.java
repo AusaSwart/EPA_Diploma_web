@@ -3,7 +3,6 @@ package com.epa.epadiplom.entities;
 import com.epa.epadiplom.entities.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,7 +29,8 @@ public class Login implements UserDetails {
     private String password;
     @Column(name = "mail_user")
     private String mail;
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     //Connections of entities
     //Connection to entity Employee
@@ -45,8 +45,7 @@ public class Login implements UserDetails {
     }
 
     // Security methods
-    @Enumerated(EnumType.STRING)
-    private Role role;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -57,7 +56,7 @@ public class Login implements UserDetails {
     }
     @Override
     public String getUsername() {
-        return login;  // mb this is mail_user needed to be ids
+        return login;
     }
     @Override
     public boolean isAccountNonExpired() {

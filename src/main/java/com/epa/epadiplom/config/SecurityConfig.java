@@ -1,7 +1,5 @@
 package com.epa.epadiplom.config;
 
-import com.mysql.cj.protocol.x.XAuthenticationProvider;
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,4 +37,5 @@ public class SecurityConfig {
 
         return httpSecurity.build();
     }
+
 }

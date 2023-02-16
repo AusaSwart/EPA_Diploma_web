@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/authorization")
+@RequestMapping("/api/v1/auth/authorization")
 public class DemoController {
 
   @GetMapping

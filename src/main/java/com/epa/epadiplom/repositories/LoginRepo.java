@@ -8,9 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface LoginRepo
-        extends JpaRepository<Login, Integer> {
+        extends JpaRepository<Login, Long> {
     // Here we're writing more complicated methods for BD for Login table
     // Also connect w/ standard methods
-
     Optional<Login> findByLogin(String login);
 }
