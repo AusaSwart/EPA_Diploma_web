@@ -1,6 +1,8 @@
 package com.epa.epadiplom.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +11,9 @@ import java.util.Objects;
 import java.util.Set;
 
 @Getter
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "employee", schema = "public", catalog = "EPA")
 public class Employee {
@@ -21,6 +25,12 @@ public class Employee {
     private long id;
     @Column(insertable=false, updatable=false)
     private long id_dep;
+    private String first_name;
+    private String middle_name;
+    private String last_name;
+    private long work_number;
+    private String location_street;
+    private String cabinet_office;
 
 
     //Connections of entities
@@ -59,23 +69,12 @@ public class Employee {
     //Connection to entity Contact
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    private Contact contact;
-    public Contact getContact() {
-        return contact;
+    private Personal personal;
+    public Personal getPersonal() {
+        return personal;
     }
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    //Connection to entity MainInfo
-    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private MainInfo mainInfo;
-    public MainInfo getMainInfo() {
-        return mainInfo;
-    }
-    public void setMainInfo(MainInfo mainInfo) {
-        this.mainInfo = mainInfo;
+    public void setPersonal(Personal personal) {
+        this.personal = personal;
     }
 
     //Connection to entity JobEmployee
@@ -110,9 +109,6 @@ public class Employee {
 
 
     // Getters, setters, constructors for Employee
-    public Employee(long id_dep) {
-        this.id_dep = id_dep;
-    }
     public long getId() {
         return id;
     }
@@ -125,14 +121,57 @@ public class Employee {
     public void setId_dep(long id_dep) {
         this.id_dep = id_dep;
     }
+    public String getFirst_name() {
+        return first_name;
+    }
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+    public String getMiddle_name() {
+        return middle_name;
+    }
+    public void setMiddle_name(String middle_name) {
+        this.middle_name = middle_name;
+    }
+    public String getLast_name() {
+        return last_name;
+    }
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+    public long getWork_number() {
+        return work_number;
+    }
+    public void setWork_number(long work_number) {
+        this.work_number = work_number;
+    }
+    public String getLocation_street() {
+        return location_street;
+    }
+    public void setLocation_street(String location_street) {
+        this.location_street = location_street;
+    }
+    public String getCabinet_office() {
+        return cabinet_office;
+    }
+    public void setCabinet_office(String cabinet_office) {
+        this.cabinet_office = cabinet_office;
+    }
 
 
     //Standard methods
+
     @Override
     public String toString() {
-        return "Employee {" +
-                "id = " + id +
-                ", id_dep = " + id_dep +
+        return "Employee{" +
+                "id=" + id +
+                ", id_dep=" + id_dep +
+                ", first_name='" + first_name + '\'' +
+                ", middle_name='" + middle_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", work_number=" + work_number +
+                ", location_street='" + location_street + '\'' +
+                ", cabinet_office='" + cabinet_office + '\'' +
                 '}';
     }
     @Override

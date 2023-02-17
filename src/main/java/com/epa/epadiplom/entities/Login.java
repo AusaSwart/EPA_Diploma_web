@@ -21,8 +21,8 @@ public class Login implements UserDetails {
     //Columns in table Login
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_main_info_login")
-    private long id_main_info_login;
+    @Column(name = "id_login")
+    private long id_login;
     @Column(name = "login_user")
     private String login;
     @Column(name = "password_user")
@@ -35,7 +35,7 @@ public class Login implements UserDetails {
     //Connections of entities
     //Connection to entity Employee
     @OneToOne
-    @JoinColumn(name = "id_main_info_login")
+    @JoinColumn(name = "id_login")
     private Employee employee;
     public Employee getEmployee() {
         return employee;

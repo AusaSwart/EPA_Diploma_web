@@ -17,11 +17,10 @@ public class EmployeesView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long id;
-    private long id_main_info;
+    private long id_employee;
     private String first_name;
     private String middle_name;
     private String last_name;
-    private String mail;
     private long work_number;
     private String location_street;
     private String cabinet_office;
@@ -31,22 +30,20 @@ public class EmployeesView {
 
 // Getters, setters, constructors for EmployeesVie
     public EmployeesView(long id,
-                         long id_main_info,
+                         long id_employee,
                          String first_name,
                          String middle_name,
                          String last_name,
-                         String mail,
                          long work_number,
                          String location_street,
                          String cabinet_office,
                          String name_dep,
                          String job_title_name) {
         this.id = id;
-        this.id_main_info = id_main_info;
+        this.id_employee = id_employee;
         this.first_name = first_name;
         this.middle_name = middle_name;
         this.last_name = last_name;
-        this.mail = mail;
         this.work_number = work_number;
         this.location_street = location_street;
         this.cabinet_office = cabinet_office;
@@ -60,11 +57,11 @@ public class EmployeesView {
     public void setId(long id) {
         this.id = id;
     }
-    public long getId_main_info() {
-        return id_main_info;
+    public long getId_employee() {
+        return id_employee;
     }
-    public void setId_main_info(long id_main_info_contact) {
-        this.id_main_info = id_main_info;
+    public void setId_employee(long id_employee) {
+        this.id_employee = id_employee;
     }
     public String getFirst_name() {
         return first_name;
@@ -83,12 +80,6 @@ public class EmployeesView {
     }
     public void setLast_name(String last_name) {
         this.last_name = last_name;
-    }
-    public String getMail() {
-        return mail;
-    }
-    public void setMail(String mail) {
-        this.mail = mail;
     }
     public long getWork_number() {
         return work_number;
@@ -136,11 +127,11 @@ public class EmployeesView {
     @Override
     public String toString() {
         return "EmployeesView{" +
-                "id_main_info=" + id_main_info +
+                "id=" + id +
+                ", id_employee=" + id_employee +
                 ", first_name='" + first_name + '\'' +
                 ", middle_name='" + middle_name + '\'' +
                 ", last_name='" + last_name + '\'' +
-                ", mail='" + mail + '\'' +
                 ", work_number=" + work_number +
                 ", location_street='" + location_street + '\'' +
                 ", cabinet_office='" + cabinet_office + '\'' +

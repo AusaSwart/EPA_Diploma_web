@@ -21,7 +21,8 @@
 //    public void run(String... args) throws Exception {
 //
 ////        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();  // хеширование паролей
-////        System.out.println(encoder.encode("student"));
+////        System.out.println(encoder.encode(" "));
+//
 //
 //        //System.out.println(employeeRepo.findAll());
 //        System.out.println("Bootstrap started");
