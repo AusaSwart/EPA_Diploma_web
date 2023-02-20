@@ -23,12 +23,16 @@ public class SecurityConfig {
         httpSecurity
                 .csrf()
                 .disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**")
+                .authorizeHttpRequests((requests) -> requests
+                .requestMatchers("/",
+                        "/api/v1/auth/**",
+                        "/api/v1/auth/main",
+                        "/api/v1/auth/main/employees")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
-                .and()
+                )
+                //.and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
