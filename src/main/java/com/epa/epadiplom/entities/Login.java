@@ -1,6 +1,6 @@
 package com.epa.epadiplom.entities;
 
-import com.epa.epadiplom.entities.role.Role;
+import com.epa.epadiplom.entities.employeeAttributes.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,6 +31,8 @@ public class Login implements UserDetails {
     private String mail;
     @Enumerated(EnumType.STRING)
     private Role role;
+//    private final List<SimpleGrantedAuthority> authorities;
+//    private final boolean isActive;
 
     //Connections of entities
     //Connection to entity Employee
@@ -49,6 +51,7 @@ public class Login implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
+        //return authorities;
     }
     @Override
     public String getPassword() {
@@ -61,19 +64,29 @@ public class Login implements UserDetails {
     @Override
     public boolean isAccountNonExpired() {
         return true;
+        //return isActive;
     }
     @Override
     public boolean isAccountNonLocked() {
         return true;
+        //return isActive;
     }
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
+        //return isActive;
     }
     @Override
     public boolean isEnabled() {
         return true;
+        //return isActive;
     }
 
+//    public static UserDetails fromLogin(Login login) {
+//        return new org.springframework.security.core.userdetails.User(
+//                login.getLogin(), login.getPassword(),
+//                login.getRole().getAuthorities()
+//        );
+//    }
 
 }

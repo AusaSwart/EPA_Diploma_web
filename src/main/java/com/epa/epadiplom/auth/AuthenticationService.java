@@ -1,7 +1,7 @@
 package com.epa.epadiplom.auth;
 
 import com.epa.epadiplom.entities.Login;
-import com.epa.epadiplom.entities.role.Role;
+import com.epa.epadiplom.entities.employeeAttributes.Role;
 import com.epa.epadiplom.repositories.LoginRepo;
 import com.epa.epadiplom.service.JwtService;
 import lombok.RequiredArgsConstructor;
