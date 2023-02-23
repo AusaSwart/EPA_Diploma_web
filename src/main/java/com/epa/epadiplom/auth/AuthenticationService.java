@@ -1,9 +1,9 @@
 package com.epa.epadiplom.auth;
 
-import com.epa.epadiplom.entities.Login;
-import com.epa.epadiplom.entities.employeeAttributes.Role;
-import com.epa.epadiplom.repositories.LoginRepo;
-import com.epa.epadiplom.service.JwtService;
+import com.epa.epadiplom.models.entities.Login;
+import com.epa.epadiplom.models.entities.employeeAttributes.Role;
+import com.epa.epadiplom.models.repositories.LoginRepo;
+import com.epa.epadiplom.domainService.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

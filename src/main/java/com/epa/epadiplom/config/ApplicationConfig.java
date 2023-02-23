@@ -1,6 +1,6 @@
 package com.epa.epadiplom.config;
 
-import com.epa.epadiplom.repositories.LoginRepo;
+import com.epa.epadiplom.models.repositories.LoginRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
