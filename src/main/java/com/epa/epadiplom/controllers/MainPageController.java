@@ -1,42 +1,55 @@
 package com.epa.epadiplom.controllers;
 
+import com.epa.epadiplom.models.entities.EmployeesView;
+import com.epa.epadiplom.models.entities.Login;
 import com.epa.epadiplom.models.repositories.EmployeesViewRepo;
+import com.epa.epadiplom.models.repositories.LoginRepo;
+import com.epa.epadiplom.models.service.LoginService;
+import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+import java.util.Objects;
+
+@RestController
 @EnableMethodSecurity
 @RequestMapping("/")
 public class MainPageController {
 
     private final EmployeesViewRepo employeesViewRepo;
-    public MainPageController(EmployeesViewRepo employeesViewRepo) {
+    private final LoginRepo loginRepo;
+    private LoginService service;
+
+    public MainPageController(EmployeesViewRepo employeesViewRepo,
+                              LoginRepo loginRepo) {
         this.employeesViewRepo = employeesViewRepo;
+        this.loginRepo = loginRepo;
+    }
+
+    @GetMapping(path ="/main/employees", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<EmployeesView> getEmployees(  ) {
+        return this.employeesViewRepo.findAll();
     }
 
 
-    // Main page (temporary) it will be hello-page, after signing up or whatever
-    // it will be page of employee, with main info n' main features (1)
-    @GetMapping("/main/main_page")
-    public String getMain(Model model){
-        //final JwtAuthentication authInfo = authService.getAuthInfo();
-        //loginRepo.findByLogin(authInfo.getPrincipal());
-        //long id = loginRepo.findByLogin(authInfo.getPrincipal()).get().getId_login();
-        //ResponseEntity.ok("Hello user " + authInfo.getPrincipal() + "!");
-        //model.addAttribute("employees_view", employeeFullViewRepo.findById(id));
-        return "main/main";
+    @GetMapping(path = "/main/main_page", produces = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody Object getMain(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth == null) {
+            return null;
+        }
+        Object principal = auth.getPrincipal();
+        Login user = (principal instanceof Login) ? (Login) principal : null;
+        return Objects.nonNull(user) ? this.service.getByLogin(user.getUsername()) : null;
     }
 
-    // add more features + admin-page, but it will be depended on login
-    // also need to take id of employee from login
-    //part of main features, where employee\admin can see all employees (5)
-    @GetMapping("/main/employees")
-    public String getEmployees( Model model ){
-        model.addAttribute("employees_view", employeesViewRepo.findAll());
-        return "main/employees";
-    }
+
+
 
 }
