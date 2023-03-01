@@ -51,7 +51,7 @@ public class MainPageController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             return auth.getName();
         }
-        System.out.println("___ -- ___" + principal.getName());
+        System.out.println("___ -- ___" + auth.getName());
         //authentication.getPrincipal();
         //System.out.println(user.getUsername());
         return "hi" ;//employeeFull ViewRepo.findById(login.getId_login());
