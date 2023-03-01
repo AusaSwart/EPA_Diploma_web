@@ -21,8 +21,9 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return username -> loginRepo.findByLogin(username)
-                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return username ->
+                loginRepo.findByLogin(username)
+                         .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
     @Bean
@@ -43,6 +44,5 @@ public class ApplicationConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 
 }

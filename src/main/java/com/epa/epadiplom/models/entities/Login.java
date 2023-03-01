@@ -3,6 +3,7 @@ package com.epa.epadiplom.models.entities;
 import com.epa.epadiplom.models.entities.employeeAttributes.Role;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +13,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@EqualsAndHashCode
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -86,5 +86,16 @@ public class Login implements UserDetails {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Login login = (Login) o;
+        return false;
+    }
 
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
