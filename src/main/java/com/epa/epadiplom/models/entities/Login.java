@@ -18,7 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "login", schema = "public", catalog = "EPA")
-public class Login implements UserDetails {
+public class Login //implements UserDetails
+{
 
     //Columns in table Login
     @Id
@@ -51,39 +52,39 @@ public class Login implements UserDetails {
 
     // Security methods
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
-        //return authorities;
-    }
-    @Override
-    public String getPassword() {
-        return password;
-    }
-    @Override
-    public String getUsername() {
-        return login;
-    }
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-        //return isActive;
-    }
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-        //return isActive;
-    }
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-        //return isActive;
-    }
-    @Override
-    public boolean isEnabled() {
-        return true;
-        //return isActive;
-    }
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        return List.of(new SimpleGrantedAuthority(role.name()));
+//        //return authorities;
+//    }
+//    @Override
+//    public String getPassword() {
+//        return password;
+//    }
+//    @Override
+//    public String getUsername() {
+//        return login;
+//    }
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//        //return isActive;
+//    }
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//        //return isActive;
+//    }
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//        //return isActive;
+//    }
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//        //return isActive;
+//    }
 
 
     @Override
