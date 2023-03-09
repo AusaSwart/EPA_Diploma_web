@@ -3,9 +3,11 @@ package com.epa.epadiplom.authentification.controllers;
 import com.epa.epadiplom.models.entities.EmployeeFullView;
 import com.epa.epadiplom.models.entities.EmployeesView;
 import com.epa.epadiplom.models.entities.EventsView;
+import com.epa.epadiplom.models.entities.LogStatementsView;
 import com.epa.epadiplom.models.repositories.EmployeeFullViewRepo;
 import com.epa.epadiplom.models.repositories.EmployeesViewRepo;
 import com.epa.epadiplom.models.repositories.EventsViewRepo;
+import com.epa.epadiplom.models.repositories.LogStatementsViewRepo;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.web.bind.annotation.*;
@@ -22,13 +24,16 @@ public class MainPageController {
     private final EmployeesViewRepo employeesViewRepo;
     private final EmployeeFullViewRepo employeeFullViewRepo;
     private final EventsViewRepo eventsViewRepo;
+    private final LogStatementsViewRepo logStatementViewRepo;
 
     public MainPageController(EmployeesViewRepo employeesViewRepo,
                               EmployeeFullViewRepo employeeFullViewRepo,
-                              EventsViewRepo eventsViewRepo) {
+                              EventsViewRepo eventsViewRepo,
+                              LogStatementsViewRepo logStatementViewRepo) {
         this.employeesViewRepo = employeesViewRepo;
         this.employeeFullViewRepo = employeeFullViewRepo;
         this.eventsViewRepo = eventsViewRepo;
+        this.logStatementViewRepo = logStatementViewRepo;
     }
 
     // Here's we have a main full info of logged employee
@@ -44,11 +49,10 @@ public class MainPageController {
         return this.employeesViewRepo.findAll();
     }
 
-
     // ls-requests
     @GetMapping(path = "main/ls", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<LogStatementView> getLsRequests() {
-        return this.logStatementViewRepo.findAllById(1000000L);
+    public @ResponseBody List<LogStatementsView> getLsRequests() {
+        return this.logStatementViewRepo.findAllByIdApprover(1000000L);
     }
 //    // do response for ls-requests
 //    @PostMapping(path = "main/ls", produces = MediaType.APPLICATION_JSON_VALUE)
