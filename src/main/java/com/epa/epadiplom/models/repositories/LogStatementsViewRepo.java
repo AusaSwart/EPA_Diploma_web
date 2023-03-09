@@ -12,7 +12,7 @@ import java.util.List;
 public interface LogStatementsViewRepo
         extends JpaRepository<LogStatementsView, Long> {
     // Read-only methods for BD for Employee view
-    List<LogStatementsView> findAllByIdApprover(long idApprover);
+    List<LogStatementsView> findAllByIdApproverAndApprove(long idApprover, int appr);
 
 
 }

@@ -18,7 +18,6 @@ import java.util.List;
 @RestController
 @EnableMethodSecurity
 @EnableWebMvc
-//@RequestMapping("/")
 public class MainPageController {
 
     private final EmployeesViewRepo employeesViewRepo;
@@ -49,25 +48,37 @@ public class MainPageController {
         return this.employeesViewRepo.findAll();
     }
 
+
+
+
     // ls-requests
     @GetMapping(path = "main/ls", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<LogStatementsView> getLsRequests() {
-        return this.logStatementViewRepo.findAllByIdApprover(1000000L);
+        return this.logStatementViewRepo.findAllByIdApproverAndApprove(1000000L, 3);
+        // change id on auth empl
+        // 1 - yes
+        // 2 - no
+        // 3 - need to be approved
     }
 //    // do response for ls-requests
 //    @PostMapping(path = "main/ls", produces = MediaType.APPLICATION_JSON_VALUE)
 //    public @ResponseBody String getLsResponse() {
 //        return this.logStatementRepo.save();
 //    }
-//
+
     // events
     @GetMapping(path = "main/events", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<EventsView> getEvents() {
         return this.eventsViewRepo.findAllByIdRecipient(1000000L);
+        // change id on auth empl
+        // add filter. if event has old date then don't show it
     }
 
 
 
+
+
+    //perhaps this part I need for userDetails\authorization. but it's doesn't certain
 
     //Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     //System.out.println(auth.getPrincipal().toString());
