@@ -58,12 +58,12 @@ public class Employee {
     //Connection to entity Login
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    private Login login;
-    public Login getLogin() {
-        return login;
+    private User user;
+    public User getUser() {
+        return user;
     }
-    public void setLogin(Login login) {
-        this.login = login;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     //Connection to entity Contact

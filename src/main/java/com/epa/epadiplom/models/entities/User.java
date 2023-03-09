@@ -3,7 +3,6 @@ package com.epa.epadiplom.models.entities;
 import com.epa.epadiplom.models.entities.employeeAttributes.Role;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,20 +17,19 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "login", schema = "public", catalog = "EPA")
-public class Login //implements UserDetails
-{
+public class User implements UserDetails {
 
-    //Columns in table Login
+    //Columns in table Login(User)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_login")
     private long id_login;
     @Column(name = "login_user")
-    private String login;
+    private String firstName;
     @Column(name = "password_user")
     private String password;
     @Column(name = "mail_user")
-    private String mail;
+    private String mail; // firstName
     @Enumerated(EnumType.STRING)
     private Role role;
 //    private final List<SimpleGrantedAuthority> authorities;
@@ -42,6 +40,7 @@ public class Login //implements UserDetails
     @OneToOne
     @JoinColumn(name = "id_login")
     private Employee employee;
+
     public Employee getEmployee() {
         return employee;
     }
@@ -52,51 +51,33 @@ public class Login //implements UserDetails
 
     // Security methods
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return List.of(new SimpleGrantedAuthority(role.name()));
-//        //return authorities;
-//    }
-//    @Override
-//    public String getPassword() {
-//        return password;
-//    }
-//    @Override
-//    public String getUsername() {
-//        return login;
-//    }
-//    @Override
-//    public boolean isAccountNonExpired() {
-//        return true;
-//        //return isActive;
-//    }
-//    @Override
-//    public boolean isAccountNonLocked() {
-//        return true;
-//        //return isActive;
-//    }
-//    @Override
-//    public boolean isCredentialsNonExpired() {
-//        return true;
-//        //return isActive;
-//    }
-//    @Override
-//    public boolean isEnabled() {
-//        return true;
-//        //return isActive;
-//    }
-
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Login login = (Login) o;
-        return false;
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+    @Override
+    public String getPassword() {
+        return password;
+    }
+    @Override
+    public String getUsername() {
+        return firstName;
+    }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }
