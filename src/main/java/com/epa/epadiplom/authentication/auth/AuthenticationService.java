@@ -1,6 +1,6 @@
-package com.epa.epadiplom.authentification.auth;
+package com.epa.epadiplom.authentication.auth;
 
-import com.epa.epadiplom.authentification.domainService.JwtService;
+import com.epa.epadiplom.authentication.domainService.JwtService;
 import com.epa.epadiplom.models.entities.User;
 import com.epa.epadiplom.models.entities.employeeAttributes.Role;
 import com.epa.epadiplom.models.repositories.UserRepo;
@@ -19,7 +19,7 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public com.epa.epadiplom.authentification.auth.AuthenticationResponse register(RegisterRequest request) {
+    public com.epa.epadiplom.authentication.auth.AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstName(request.getFirstName())
                 .mail(request.getMail())
@@ -28,12 +28,12 @@ public class AuthenticationService {
                 .build();
         userRepo.save(user);
         var jwtToken = jwtService.generateToken(user);
-        return com.epa.epadiplom.authentification.auth.AuthenticationResponse.builder()
+        return com.epa.epadiplom.authentication.auth.AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }
 
-    public com.epa.epadiplom.authentification.auth.AuthenticationResponse authenticate(
+    public com.epa.epadiplom.authentication.auth.AuthenticationResponse authenticate(
             AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
@@ -44,7 +44,7 @@ public class AuthenticationService {
         var user = userRepo.findByFirstName(request.getLogin())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
-        return com.epa.epadiplom.authentification.auth.AuthenticationResponse.builder()
+        return com.epa.epadiplom.authentication.auth.AuthenticationResponse.builder()
                 .token(jwtToken)
                 .build();
     }

@@ -6,10 +6,6 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-#     if there's some bugs, watch here and reset ddl-auto cuz'
-#     it's smth related to tables and their updates/creates
-#     n' other 'ates
-#      we need 'create-drop' in example, for security stuff
       ddl-auto: none
     show-sql: true
     properties:
@@ -17,9 +13,3 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-    #spring.datasource.url=jdbc:postgresql://localhost:5432/EPA
-    #spring.datasource.username=postgres
-    #spring.datasource.password=123qwe
-    #spring.jpa.show-sql=true
-    #spring.datasource.driver-class-name=org.postgresql.Driver

@@ -1,10 +1,10 @@
-package com.epa.epadiplom.authentification.controllers;
+package com.epa.epadiplom.authentication.controllers;
 
 
-import com.epa.epadiplom.authentification.auth.AuthenticationRequest;
-import com.epa.epadiplom.authentification.auth.AuthenticationResponse;
-import com.epa.epadiplom.authentification.auth.AuthenticationService;
-import com.epa.epadiplom.authentification.auth.RegisterRequest;
+import com.epa.epadiplom.authentication.auth.AuthenticationRequest;
+import com.epa.epadiplom.authentication.auth.AuthenticationResponse;
+import com.epa.epadiplom.authentication.auth.AuthenticationService;
+import com.epa.epadiplom.authentication.auth.RegisterRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

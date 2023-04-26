@@ -1,4 +1,4 @@
-package com.epa.epadiplom.authentification.controllers;
+package com.epa.epadiplom.authentication.controllers;
 
 import com.epa.epadiplom.models.entities.EmployeeFullView;
 import com.epa.epadiplom.models.entities.EmployeesView;
@@ -10,6 +10,7 @@ import com.epa.epadiplom.models.repositories.EventsViewRepo;
 import com.epa.epadiplom.models.repositories.LogStatementsViewRepo;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -49,11 +50,10 @@ public class MainPageController {
     }
 
 
-
-
     // ls-requests
-    @GetMapping(path = "main/ls", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "ls", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<LogStatementsView> getLsRequests() {
+
         return this.logStatementViewRepo.findAllByIdApproverAndApprove(1000000L, 3);
         // change id on auth empl
         // 1 - yes

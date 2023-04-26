@@ -1,4 +1,4 @@
-package com.epa.epadiplom.authentification.config;
+package com.epa.epadiplom.authentication.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final com.epa.epadiplom.authentification.config.JwtAuthenticationFilter jwtAuthFilter;
+    private final com.epa.epadiplom.authentication.config.JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
     @Bean

@@ -1,4 +1,4 @@
-package com.epa.epadiplom.authentification.domainService;
+package com.epa.epadiplom.authentication.domainService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

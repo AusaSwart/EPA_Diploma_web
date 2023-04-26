@@ -1,4 +1,4 @@
-package com.epa.epadiplom.authentification.auth;
+package com.epa.epadiplom.authentication.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
 
-    private String login;
-    String password;
+    private String firstName;
+    private String password;
+    private String mail;
+
 }

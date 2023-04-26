@@ -1,4 +1,4 @@
-package com.epa.epadiplom.authentification.config;
+package com.epa.epadiplom.authentication.config;
 
 import com.epa.epadiplom.models.repositories.UserRepo;
 import lombok.RequiredArgsConstructor;

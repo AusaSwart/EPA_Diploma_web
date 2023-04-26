@@ -78,7 +78,7 @@ public class LogStatementsView {
     public long getIdApprover() {
         return idApprover;
     }
-    public void setIdApprover(long id_approver) {
+    public void setIdApprover(long idApprover) {
         this.idApprover = idApprover;
     }
     public int getApprove() {

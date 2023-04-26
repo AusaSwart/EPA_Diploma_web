@@ -1,6 +1,6 @@
-package com.epa.epadiplom.authentification.config;
+package com.epa.epadiplom.authentication.config;
 
-import com.epa.epadiplom.authentification.domainService.JwtService;
+import com.epa.epadiplom.authentication.domainService.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,5 +1,4 @@
-package com.epa.epadiplom.authentification.auth;
-
+package com.epa.epadiplom.authentication.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
+public class AuthenticationRequest {
 
-    private String token;
+    private String login;
+    String password;
 }
