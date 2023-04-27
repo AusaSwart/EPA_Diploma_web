@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmployeeTaskRepository extends JpaRepository<EmployeeTask, Long> {
-    EmployeeTask findEmployeeTasksByEmployee_Id(long id);
+
 }
