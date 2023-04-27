@@ -6,6 +6,9 @@ import com.epa.epadiplom.entity.EventsView;
 import com.epa.epadiplom.entity.LogStatementsView;
 import com.epa.epadiplom.repository.*;
 import com.epa.epadiplom.service.EmployeeFullViewService;
+import com.epa.epadiplom.service.EmployeesViewService;
+import com.epa.epadiplom.service.EventsViewService;
+import com.epa.epadiplom.service.LogStatementsViewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -22,10 +25,10 @@ import java.util.List;
 @EnableWebMvc
 @RequiredArgsConstructor
 public class MainPageController {
-    private final EmployeesViewRepository employeesViewRepository;
+    private final EmployeesViewService employeesViewService;
     private final EmployeeFullViewService employeeFullViewService;
-    private final LogStatementsViewRepository logStatementsViewRepository;
-    private final EventsViewRepository eventsViewRepository;
+    private final LogStatementsViewService logStatementsViewService;
+    private final EventsViewService eventsViewService;
 
     @GetMapping(path = "/mainUserInfo", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<EmployeeFullView> getEmployeeInfo(Authentication authentication) {
@@ -34,17 +37,17 @@ public class MainPageController {
 
     @GetMapping(path = "/employees", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<EmployeesView> getEmployees() {
-        return this.employeesViewRepository.findAll();
+        return this.employeesViewService.findAll();
     }
 
     @GetMapping(path = "/ls", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<LogStatementsView> getLsRequests(Authentication authentication) {
         authentication.getName();
-        return this.logStatementsViewRepository.findAllByIdApproverAndApprove(1000000L, 3);
+        return this.logStatementsViewService.findAllByIdApproverAndApprove(1000000L, 3);
     }
 
     @GetMapping(path = "/events", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<EventsView> getEvents(Authentication authentication) {
-        return this.eventsViewRepository.findAllByIdRecipient(1000000L);
+        return this.eventsViewService.findAllByIdRecipient(1000000L);
     }
 }
