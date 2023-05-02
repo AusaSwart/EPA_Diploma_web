@@ -21,7 +21,7 @@ import java.util.List;
 @Table(name = "login", schema = "public", catalog = "EPA")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_login")
     private long idLogin;
     @Column(name = "login_user")

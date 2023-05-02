@@ -20,9 +20,11 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(insertable = false, updatable = false)
+   @Column(insertable = false, updatable = false)
+   //@Column(name="id_dep")
     private long id_dep;
-    private String first_name;
+    @Column(name="first_name")
+    private String firstName;
     private String middle_name;
     private String last_name;
     private long work_number;
