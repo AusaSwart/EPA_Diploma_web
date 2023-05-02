@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LogStatementRepository extends JpaRepository<LogStatement, Long> {
+
+    LogStatement
 }

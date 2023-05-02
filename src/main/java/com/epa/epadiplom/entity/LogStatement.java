@@ -26,7 +26,7 @@ public class LogStatement {
     private String comment_ls;
     private int days_sum;
     private int type_leave;
-    private int approve;
+    private int status;
     private Date date_leave;
     private Date date_of_ls;
 

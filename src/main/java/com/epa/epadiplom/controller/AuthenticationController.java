@@ -25,9 +25,10 @@ public class AuthenticationController {
             @RequestBody AuthenticationRequest request){
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
-//
+
     @GetMapping("/authorization")
     public ResponseEntity<String> sayHello() {
         return ResponseEntity.ok("Hello from secured endpoint");
     }
+
 }
