@@ -41,13 +41,13 @@ public class MainPageController {
     }
 
     // Request to approve the statements
-//    @PostMapping(path = "/ls{id_ls}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    @PostMapping(path = "/ls/{id_ls}", produces = MediaType.APPLICATION_JSON_VALUE)
 //    public @ResponseBody List<LogStatement> setLsApprove(Authentication authentication) {
 //        return this.logStatementService. (id_ls, approve);
 //    }
 
     // Request to employee info by Id
-//    @GetMapping(path = "/employee{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    @GetMapping(path = "/employee/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 //    public @ResponseBody List<EventsView> getEvents(Authentication authentication) {
 //        return this.eventsViewService.findAllByIdRecipient(id);
 //    }
