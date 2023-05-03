@@ -34,13 +34,14 @@ public class AuthenticationService {
 //                .cabinet_office("0/000")
 //                .build();
 //        employeeRepository.save(employee);
-        Employee employee = employeeRepository.findByFirstName("none").orElse(new Employee());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(employee.getId());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        Employee employee = employeeRepository
+                .findByFirstNameAndMiddleNameAndLastName(
+                        request.getFirstName(),
+                        request.getMiddleName(),
+                        request.getLastName()).orElse(new Employee());
         var user = User.builder()
                 .idLogin(employee.getId())
-                .firstName(request.getFirstName())
+                .firstName(request.getLogin())
                 .mail(request.getMail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)

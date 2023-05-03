@@ -25,11 +25,16 @@ public class Employee {
     private long id_dep;
     @Column(name="first_name")
     private String firstName;
-    private String middle_name;
-    private String last_name;
-    private long work_number;
-    private String location_street;
-    private String cabinet_office;
+    @Column(name="middle_name")
+    private String middleName;
+    @Column(name="last_name")
+    private String lastName;
+    @Column(name="work_number")
+    private long workNumber;
+    @Column(name="location_street")
+    private String locationStreet;
+    @Column(name="cabinet_office")
+    private String cabinetOffice;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_dep")
