@@ -9,7 +9,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.security.web.session.SessionManagementFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -24,6 +28,8 @@ public class SecurityConfig implements WebMvcConfigurer {
         httpSecurity
                 .cors()
                 .and()
+                .addFilterBefore(new CorsFilter(corsConfigurationSource()), SessionManagementFilter.class)
+                .httpBasic().disable()
                 .csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers("/**")
@@ -38,13 +44,24 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedHeaders("*")
-                .allowCredentials(true)
-                .allowedMethods("*");
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", config.applyPermitDefaultValues());
+        return source;
     }
+
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/*")
+//
+//                .allowedHeaders("*")
+//                .allowedOrigins("*")
+//                .allowCredentials(true)
+//                .allowedMethods("*");
+//    }
 
 }
