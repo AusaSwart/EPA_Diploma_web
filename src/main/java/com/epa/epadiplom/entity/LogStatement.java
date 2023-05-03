@@ -21,14 +21,21 @@ public class LogStatement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private long id_employee;
-    private long id_approver;
-    private String comment_ls;
-    private int days_sum;
-    private int type_leave;
+    @Column(name = "id_employee")
+    private long idEmployee;
+    @Column(name = "id_approver")
+    private long idApprover;
+    @Column(name = "comment_ls")
+    private String commentLs;
+    @Column(name = "days_sum")
+    private int daysSum;
+    @Column(name = "type_leave")
+    private int typeLeave;
     private int status;
-    private Date date_leave;
-    private Date date_of_ls;
+    @Column(name = "date_leave")
+    private Date dateLeave;
+    @Column(name = "date_of_ls")
+    private Date dateOfLs;
 
     @OneToMany(mappedBy = "logStatement")
     private Set<Document> documents = new LinkedHashSet<>();

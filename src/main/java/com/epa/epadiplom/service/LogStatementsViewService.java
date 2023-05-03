@@ -12,8 +12,8 @@ import java.util.List;
 public class LogStatementsViewService {
     private final LogStatementsViewRepository logStatementsViewRepository;
 
-    public List<LogStatementsView> findAllByIdApproverAndApprove(long idApprover, int appr){
-        return logStatementsViewRepository.findAllByIdApproverAndApprove(idApprover, appr);
+    public List<LogStatementsView> findAllByIdApproverAndStatus(long idApprover, int status){
+        return logStatementsViewRepository.findAllByIdApproverAndStatus(idApprover, status);
     }
 
 }

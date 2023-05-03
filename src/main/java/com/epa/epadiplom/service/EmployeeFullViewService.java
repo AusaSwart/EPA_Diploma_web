@@ -13,8 +13,8 @@ public class EmployeeFullViewService {
 
     private final EmployeeFullViewRepository employeeFullViewRepository;
 
-    public List<EmployeeFullView> findAllByLoginUser(String login_user){
-        return employeeFullViewRepository.findAllByLoginUser(login_user);
+    public List<EmployeeFullView> findAllByLoginUser(String loginUser){
+        return employeeFullViewRepository.findAllByLoginUser(loginUser);
     }
 
 }

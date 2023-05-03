@@ -11,5 +11,5 @@ import java.util.List;
 @Transactional
 public interface EmployeeFullViewRepository extends JpaRepository<EmployeeFullView, Long> {
     List<EmployeeFullView> findAllByIdLogin(long idLogin);
-    List<EmployeeFullView> findAllByLoginUser(String login_user);
+    List<EmployeeFullView> findAllByLoginUser(String loginUser);
 }

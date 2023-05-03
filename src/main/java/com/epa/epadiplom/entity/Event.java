@@ -21,9 +21,12 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private String type_of_event;
-    private String comment_fe;
-    private Date date_of_event;
+    @Column(name = "type_of_event")
+    private String typeOfEvent;
+    @Column(name = "comment_fe")
+    private String commentFe;
+    @Column(name = "date_of_event")
+    private Date dateOfEvent;
 
     @OneToMany(mappedBy = "event")
     private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();

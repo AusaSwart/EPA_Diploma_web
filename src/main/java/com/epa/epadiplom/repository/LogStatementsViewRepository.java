@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 @Transactional
 public interface LogStatementsViewRepository extends JpaRepository<LogStatementsView, Long> {
-    List<LogStatementsView> findAllByIdApproverAndApprove(long idApprover, int appr);
+    List<LogStatementsView> findAllByIdApproverAndStatus(long idApprover, int status);
 }

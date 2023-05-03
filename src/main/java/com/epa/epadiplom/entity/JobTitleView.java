@@ -18,6 +18,7 @@ public class JobTitleView {
     private  long id;
     @Column(name = "id_employee")
     private long idEmployee;
-    private String job_title_name;
+    @Column(name = "job_title_name")
+    private String jobTitleName;
 
 }

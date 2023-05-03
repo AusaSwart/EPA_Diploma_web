@@ -17,8 +17,10 @@ public class EmployeeTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private long id_employee;
-    private long id_task;
+    @Column(name = "id_employee")
+    private long idEmployee;
+    @Column(name = "id_task")
+    private long idTask;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;

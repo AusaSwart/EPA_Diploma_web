@@ -18,10 +18,13 @@ public class Personal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_personal")
-    private long id_personal;
-    private long personal_number;
-    private Date birth_d;
-    private Date entry_d;
+    private long idPersonal;
+    @Column(name = "personal_number")
+    private long personalNumber;
+    @Column(name = "birth_d")
+    private Date birthD;
+    @Column(name = "entry_d")
+    private Date entryD;
 
     @OneToOne
     @JoinColumn(name = "id_personal")

@@ -18,14 +18,20 @@ public class LogStatementsView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long id;
-    private int type_leave;
-    private Date date_of_ls;
-    private int days_sum;
+    @Column(name = "type_leave")
+    private int typeLeave;
+    @Column(name = "date_of_ls")
+    private Date dateOfLs;
+    @Column(name = "days_sum")
+    private int daysSum;
     @Column(name = "id_approver")
     private long idApprover;
-    private int approve;
-    private String comment_ls;
-    private long id_employee;
-    private String body_doc;
+    private int status;
+    @Column(name = "comment_ls")
+    private String commentLs;
+    @Column(name = "id_employee")
+    private long idEmployee;
+    @Column(name = "body_doc")
+    private String bodyDoc;
     private String role;
 }

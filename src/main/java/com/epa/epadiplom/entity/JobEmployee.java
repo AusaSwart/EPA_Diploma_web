@@ -17,8 +17,10 @@ public class JobEmployee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private long id_employee;
-    private long id_job_title;
+    @Column(name = "id_employee")
+    private long idEmployee;
+    @Column(name = "id_job_title")
+    private long idJobTitle;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;

@@ -25,5 +25,6 @@ public class TasksView {
     private long idExecutor;
     @Column(name = "id_employee")
     private long idEmployee;
-    private String comment_te;
+    @Column(name = "comment_te")
+    private String commentTe;
 }

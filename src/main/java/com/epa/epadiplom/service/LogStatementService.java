@@ -13,5 +13,4 @@ public class LogStatementService {
 
     //public LogStatement
 
-
 }

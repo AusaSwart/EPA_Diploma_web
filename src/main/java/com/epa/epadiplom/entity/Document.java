@@ -17,8 +17,10 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private long id_ls;
-    private String body_doc;
+    @Column(name = "id_ls")
+    private long idLs;
+    @Column(name = "body_doc")
+    private String bodyDoc;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ls", nullable = false, insertable = false, updatable = false)

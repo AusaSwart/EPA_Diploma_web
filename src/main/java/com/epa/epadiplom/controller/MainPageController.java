@@ -36,7 +36,7 @@ public class MainPageController {
     // Request to see the statements that need to approve
     @GetMapping(path = "/ls", produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody List<LogStatementsView> getLsRequests(Authentication authentication) {
-        return this.logStatementsViewService.findAllByIdApproverAndApprove(
+        return this.logStatementsViewService.findAllByIdApproverAndStatus(
                 userService.findUserByFirstName(authentication.getName()).getIdLogin(), 3);
     }
 

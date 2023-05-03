@@ -17,9 +17,12 @@ public class NoticeEvent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private long id_recipient;
-    private long id_event;
-    private long id_employee;
+    @Column(name = "id_recipient")
+    private long idRecipient;
+    @Column(name = "id_event")
+    private long idEvent;
+    @Column(name = "id_employee")
+    private long idEmployee;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;

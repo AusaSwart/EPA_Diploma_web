@@ -18,10 +18,14 @@ public class EventsView {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long id;
-    private String type_of_event;
-    private Date date_of_event;
-    private String comment_fe;
+    @Column(name = "type_of_event")
+    private String typeOfEvent;
+    @Column(name = "date_of_event")
+    private Date dateOfEvent;
+    @Column(name = "comment_fe")
+    private String commentFe;
     @Column(name = "id_recipient")
     private long idRecipient;
-    private long id_employee;
+    @Column(name = "id_employee")
+    private long idEmployee;
 }

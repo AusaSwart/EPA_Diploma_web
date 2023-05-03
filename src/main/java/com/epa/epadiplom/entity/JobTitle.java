@@ -20,6 +20,7 @@ public class JobTitle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
+    @Column(name = "job_title_name")
     private String job_title_name;
 
     @OneToMany(mappedBy = "jobTitle")
