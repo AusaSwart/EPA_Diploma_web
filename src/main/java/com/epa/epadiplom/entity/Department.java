@@ -20,7 +20,8 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private String name_dep;
+    @Column(name = "name_dep")
+    private String nameDep;
 
     @OneToMany(mappedBy = "department")
     private Set<Employee> employees = new LinkedHashSet<>();

@@ -42,4 +42,5 @@ public class LogStatement {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Employee employee;
+
 }

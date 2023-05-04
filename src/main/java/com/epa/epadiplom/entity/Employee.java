@@ -21,7 +21,6 @@ public class Employee {
     @Column(name = "id")
     private long id;
    @Column(insertable = false, updatable = false, name = "id_dep")
-   //@Column(name="")
     private long idDep;
     @Column(name="first_name")
     private String firstName;

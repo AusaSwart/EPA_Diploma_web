@@ -24,16 +24,6 @@ public class AuthenticationService {
     private final EmployeeRepository employeeRepository;
 
     public AuthenticationResponse register(RegisterRequest request) {
-//        Employee employee = Employee.builder()
-//                .id_dep(999)
-//                .firstName("none")
-//                .middle_name("none")
-//                .last_name("none")
-//                .work_number(000)
-//                .location_street("none")
-//                .cabinet_office("0/000")
-//                .build();
-//        employeeRepository.save(employee);
         Employee employee = employeeRepository
                 .findByFirstNameAndMiddleNameAndLastName(
                         request.getFirstName(),
