@@ -23,8 +23,10 @@ public class JobEmployee {
     private long idJobTitle;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
     private Employee employee;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_job_title")
     private JobTitle jobTitle;
 }

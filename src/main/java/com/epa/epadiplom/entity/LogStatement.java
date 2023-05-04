@@ -41,6 +41,7 @@ public class LogStatement {
     private Set<Document> documents = new LinkedHashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
     private Employee employee;
 
 }
