@@ -1,16 +1,14 @@
 package com.epa.epadiplom.entity.authentication;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Date;
 
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class EventRequest {
 
     private String typeOfEvent;

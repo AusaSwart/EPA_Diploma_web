@@ -1,11 +1,10 @@
 package com.epa.epadiplom.entity;
 
 import com.epa.epadiplom.entity.employeeAttributes.Role;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,10 +12,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+//To suppress serializing properties with null values
+@JsonSerialize
+//Ignoring new fields on JSON objects
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "login", schema = "public", catalog = "EPA")
 public class User implements UserDetails {

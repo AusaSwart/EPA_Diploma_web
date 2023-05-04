@@ -3,7 +3,6 @@ package com.epa.epadiplom.controller;
 import com.epa.epadiplom.entity.*;
 import com.epa.epadiplom.entity.authentication.EventRequest;
 import com.epa.epadiplom.entity.authentication.LogStatementRequest;
-import com.epa.epadiplom.repository.NoticeEventRepository;
 import com.epa.epadiplom.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -53,18 +52,11 @@ public class MainPageController {
             Authentication authentication,
             @RequestBody LogStatementRequest request
     ) {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(id + "       " +
-                userService.findUserByFirstName(authentication.getName()).getIdLogin());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!");
         LogStatement logStatement = logStatementService.findByIdAndIdApprover(
                 id,
                 userService.findUserByFirstName(authentication.getName()).getIdLogin()
                 ).orElse(new LogStatement());
         logStatement.setStatus(request.getStatus());
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println(logStatement);
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!");
         logStatementService.saveLogStatement(logStatement);
         return ResponseEntity.ok(logStatementService.findByIdAndIdApprover(
                 id,
@@ -105,13 +97,17 @@ public class MainPageController {
                 .commentFe(request.getCommentFe())
                 .typeOfEvent(request.getTypeOfEvent())
                 .build();
-        NoticeEvent noticeEvent = NoticeEvent.builder()
-                .eventId(event.getId())
-                .recipientId(request.getRecipientId())
-                .employeeId(userService.findUserByFirstName(authentication.getName()).getIdLogin())
-                .build();
         if(eventService.saveEvent(event))
             System.out.println("ok");
+        NoticeEvent noticeEvent = NoticeEvent.builder()
+                .recipientId(request.getRecipientId())
+                .eventId(event.getId())
+                .employeeId(userService.findUserByFirstName(authentication.getName()).getIdLogin())
+                .id(0)
+                .build();
+        System.out.println(noticeEvent.getRecipientId() + "   " +
+                noticeEvent.getEventId() + "  " +
+                noticeEvent.getEmployeeId());
         if(noticeEventService.saveNoticeEvent(noticeEvent))
             System.out.println("ok");
         return ResponseEntity.ok("Done");

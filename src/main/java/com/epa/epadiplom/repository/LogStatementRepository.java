@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface LogStatementRepository extends JpaRepository<LogStatement, Long> {
 
     Optional<LogStatement> findByIdAndIdApprover (long id, long idApprover);
-
+    Optional<LogStatement> findById (long id);
 }

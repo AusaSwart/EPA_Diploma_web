@@ -1,19 +1,23 @@
 package com.epa.epadiplom.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.sql.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+//To suppress serializing properties with null values
+@JsonSerialize
+//Ignoring new fields on JSON objects
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 @Table(name = "log_statement", schema = "public", catalog = "EPA")
 public class LogStatement {
