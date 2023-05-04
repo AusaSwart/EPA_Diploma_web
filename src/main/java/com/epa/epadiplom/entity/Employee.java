@@ -53,7 +53,7 @@ public class Employee {
     @OneToMany(mappedBy = "employee")
     private Set<JobEmployee> jobEmployees = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(fetch = FetchType. LAZY,mappedBy = "employee")
     private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "employee")

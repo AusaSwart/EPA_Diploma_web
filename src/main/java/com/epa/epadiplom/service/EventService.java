@@ -12,7 +12,10 @@ public class EventService {
     private final EventRepository eventRepository;
 
     public boolean saveEvent (Event event){
+        if(eventRepository.findById(event.getId()).isPresent())
+            return false;
         eventRepository.save(event);
+        return true;
     }
 
 }

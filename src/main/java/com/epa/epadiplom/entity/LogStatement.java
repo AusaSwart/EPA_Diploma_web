@@ -21,7 +21,7 @@ public class LogStatement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "id_employee")
+    @Column(insertable = false, updatable = false, name = "id_employee")
     private long idEmployee;
     @Column(name = "id_approver")
     private long idApprover;

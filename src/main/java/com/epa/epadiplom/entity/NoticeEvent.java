@@ -18,15 +18,17 @@ public class NoticeEvent {
     @Column(name = "id")
     private long id;
     @Column(name = "id_recipient")
-    private long idRecipient;
-    @Column(name = "id_event")
-    private long idEvent;
-    @Column(name = "id_employee")
-    private long idEmployee;
+    private long recipientId;
+    @Column(insertable = false, updatable = false, name = "id_event")
+    private long eventId;
+    @Column(insertable = false, updatable = false, name = "id_employee")
+    private long employeeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_employee")
     private Employee employee;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_event")
     private Event event;
 }

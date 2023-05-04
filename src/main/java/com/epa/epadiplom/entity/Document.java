@@ -17,7 +17,7 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "id_ls")
+    @Column(insertable = false, updatable = false, name = "id_ls")
     private long idLs;
     @Column(name = "body_doc")
     private String bodyDoc;

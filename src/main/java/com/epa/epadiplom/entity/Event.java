@@ -28,6 +28,6 @@ public class Event {
     @Column(name = "date_of_event")
     private Date dateOfEvent;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "event")
     private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();
 }

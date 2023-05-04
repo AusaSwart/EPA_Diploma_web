@@ -17,9 +17,9 @@ public class EmployeeTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "id_employee")
+    @Column(insertable = false, updatable = false, name = "id_employee")
     private long idEmployee;
-    @Column(name = "id_task")
+    @Column(insertable = false, updatable = false, name = "id_task")
     private long idTask;
 
     @ManyToOne(fetch = FetchType.LAZY)
