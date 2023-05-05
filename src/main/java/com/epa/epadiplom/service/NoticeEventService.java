@@ -1,6 +1,5 @@
 package com.epa.epadiplom.service;
 
-import com.epa.epadiplom.entity.Event;
 import com.epa.epadiplom.entity.NoticeEvent;
 import com.epa.epadiplom.repository.NoticeEventRepository;
 import lombok.RequiredArgsConstructor;

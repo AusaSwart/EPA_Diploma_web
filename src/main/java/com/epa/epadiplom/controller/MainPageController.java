@@ -89,8 +89,7 @@ public class MainPageController {
 
 
     @PostMapping(path = "/event", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> createEvent(@RequestBody EventRequest request//,
-                                              //Authentication authentication
+    public ResponseEntity<String> createEvent(@RequestBody EventRequest request
     ) {
         Event event = Event.builder()
                 .dateOfEvent(request.getDateOfEvent())

@@ -13,6 +13,5 @@ public class EventRequest {
     private String typeOfEvent;
     private String commentFe;
     private Date dateOfEvent;
-//    private long recipientId;
 
 }
