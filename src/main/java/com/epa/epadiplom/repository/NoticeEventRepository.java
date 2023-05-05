@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface NoticeEventRepository extends JpaRepository<NoticeEvent, Long> {
 
     Optional<NoticeEvent> findById(Long id);
+
+
 }

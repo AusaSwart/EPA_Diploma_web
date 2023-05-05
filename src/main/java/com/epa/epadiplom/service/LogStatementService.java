@@ -13,8 +13,7 @@ public class LogStatementService {
 
     private final LogStatementRepository logStatementRepository;
     public void saveLogStatement(LogStatement logStatement) {
-        if(logStatementRepository.findById(logStatement.getId()).isPresent())
-            return;
+       if(logStatementRepository.findById(logStatement.getId()).isPresent())
         logStatementRepository.save(logStatement);
     }
 

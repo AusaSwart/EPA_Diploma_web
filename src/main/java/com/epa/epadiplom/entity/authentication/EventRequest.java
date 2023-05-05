@@ -4,16 +4,15 @@ import lombok.*;
 
 import java.sql.Date;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class EventRequest {
 
     private String typeOfEvent;
     private String commentFe;
     private Date dateOfEvent;
-    private long recipientId;
+//    private long recipientId;
 
 }

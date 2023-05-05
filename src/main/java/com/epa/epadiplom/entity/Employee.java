@@ -24,7 +24,7 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-   @Column(insertable = false, updatable = false, name = "id_dep")
+    @Column(insertable = false, updatable = false, name = "id_dep")
     private long idDep;
     @Column(name="first_name")
     private String firstName;
@@ -43,7 +43,7 @@ public class Employee {
     @JoinColumn(name = "id_dep")
     private Department department;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(fetch = FetchType. LAZY, mappedBy = "employee")
     private Set<LogStatement> logStatements = new LinkedHashSet<>();
 
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
@@ -54,12 +54,12 @@ public class Employee {
     @PrimaryKeyJoinColumn
     private Personal personal;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(fetch = FetchType. LAZY, mappedBy = "employee")
     private Set<JobEmployee> jobEmployees = new LinkedHashSet<>();
 
-    @OneToMany(fetch = FetchType. LAZY,mappedBy = "employee")
+    @OneToMany(fetch = FetchType. LAZY, mappedBy = "employee")
     private Set<NoticeEvent> noticeEvents = new LinkedHashSet<>();
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(fetch = FetchType. LAZY, mappedBy = "employee")
     private Set<EmployeeTask> employeeTasks = new LinkedHashSet<>();
 }

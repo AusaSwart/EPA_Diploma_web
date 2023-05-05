@@ -3,6 +3,7 @@ package com.epa.epadiplom.controller;
 import com.epa.epadiplom.entity.*;
 import com.epa.epadiplom.entity.authentication.EventRequest;
 import com.epa.epadiplom.entity.authentication.LogStatementRequest;
+import com.epa.epadiplom.entity.authentication.NoticeEventRequest;
 import com.epa.epadiplom.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -47,7 +48,7 @@ public class MainPageController {
 
 //     Request to approve the statements
     @PostMapping(path = "/ls/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Optional<LogStatement>> setLsApprove(
+    public ResponseEntity<String> setLsApprove(
             @PathVariable Long id,
             Authentication authentication,
             @RequestBody LogStatementRequest request
@@ -57,10 +58,10 @@ public class MainPageController {
                 userService.findUserByFirstName(authentication.getName()).getIdLogin()
                 ).orElse(new LogStatement());
         logStatement.setStatus(request.getStatus());
+        System.out.println(logStatement.getId() + "    " +
+                logStatement.getStatus());
         logStatementService.saveLogStatement(logStatement);
-        return ResponseEntity.ok(logStatementService.findByIdAndIdApprover(
-                id,
-                userService.findUserByFirstName(authentication.getName()).getIdLogin()));
+        return ResponseEntity.ok("Done ");
     }
 
     // Request to see the events for authorized employee
@@ -88,9 +89,8 @@ public class MainPageController {
 
 
     @PostMapping(path = "/event", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> createEvent(
-            @RequestBody EventRequest request,
-            Authentication authentication
+    public ResponseEntity<String> createEvent(@RequestBody EventRequest request//,
+                                              //Authentication authentication
     ) {
         Event event = Event.builder()
                 .dateOfEvent(request.getDateOfEvent())
@@ -99,11 +99,30 @@ public class MainPageController {
                 .build();
         if(eventService.saveEvent(event))
             System.out.println("ok");
+//        NoticeEvent noticeEvent = NoticeEvent.builder()
+//                .recipientId(request.getRecipientId())
+//                .eventId(event.getId())
+//                .employeeId(userService.findUserByFirstName(authentication.getName()).getIdLogin())
+//                .id(0)
+//                .build();
+//        System.out.println(noticeEvent.getRecipientId() + "   " +
+//                noticeEvent.getEventId() + "  " +
+//                noticeEvent.getEmployeeId());
+//        if(noticeEventService.saveNoticeEvent(noticeEvent))
+//            System.out.println("ok");
+        return ResponseEntity.ok("Done");
+    }
+
+    @PostMapping(path = "/noticeevent/{idevent}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> createNoticeEvent(
+            @RequestBody NoticeEventRequest request,
+            Authentication authentication,
+            @PathVariable Long idevent
+    ) {
         NoticeEvent noticeEvent = NoticeEvent.builder()
                 .recipientId(request.getRecipientId())
-                .eventId(event.getId())
+                .eventId(idevent)
                 .employeeId(userService.findUserByFirstName(authentication.getName()).getIdLogin())
-                .id(0)
                 .build();
         System.out.println(noticeEvent.getRecipientId() + "   " +
                 noticeEvent.getEventId() + "  " +
@@ -112,6 +131,9 @@ public class MainPageController {
             System.out.println("ok");
         return ResponseEntity.ok("Done");
     }
+
+
+
 
 
 
