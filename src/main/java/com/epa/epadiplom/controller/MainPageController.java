@@ -1,9 +1,7 @@
 package com.epa.epadiplom.controller;
 
 import com.epa.epadiplom.entity.*;
-import com.epa.epadiplom.entity.authentication.EventRequest;
-import com.epa.epadiplom.entity.authentication.LogStatementRequest;
-import com.epa.epadiplom.entity.authentication.NoticeEventRequest;
+import com.epa.epadiplom.entity.authentication.*;
 import com.epa.epadiplom.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @EnableMethodSecurity
@@ -30,6 +27,8 @@ public class MainPageController {
     private final LogStatementService logStatementService;
     private final EventService eventService;
     private final NoticeEventService noticeEventService;
+    private final TaskService taskService;
+    private final EmployeeTaskService employeeTaskService;
 
     // _______________________________________________________
     // Request to see the main info of authorized employee page
@@ -89,8 +88,7 @@ public class MainPageController {
 
 
     @PostMapping(path = "/event", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> createEvent(@RequestBody EventRequest request
-    ) {
+    public ResponseEntity<String> createEvent(@RequestBody EventRequest request) {
         Event event = Event.builder()
                 .dateOfEvent(request.getDateOfEvent())
                 .commentFe(request.getCommentFe())
@@ -131,10 +129,25 @@ public class MainPageController {
         return ResponseEntity.ok("Done");
     }
 
-
-
-
-
+    @PostMapping(path = "/task", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> createTask(@RequestBody TaskRequest request) {
+        Task task = Task.builder()
+                .dateTask(request.getDateTask())
+                .nameOfTask(request.getNameOfTask())
+                .idExecutor(request.getIdExecutor())
+                .commentTe(request.getCommentTe())
+                .build();
+        System.out.println(task.getId());
+        EmployeeTask employeeTask = EmployeeTask.builder()
+                .idTask(task.getId())
+                .idEmployee(request.getIdExecutor())
+                .build();
+        if (taskService.saveTask(task))
+            System.out.println("ok");
+        if (employeeTaskService.saveEmployeeTask(employeeTask))
+            System.out.println("ok");
+        return ResponseEntity.ok("Done");
+    }
 
 
 
