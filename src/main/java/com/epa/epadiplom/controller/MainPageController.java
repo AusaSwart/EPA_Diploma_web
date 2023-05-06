@@ -31,6 +31,7 @@ public class MainPageController {
     private final TaskService taskService;
     private final EmployeeTaskService employeeTaskService;
     private final PasswordEncoder passwordEncoder;
+    private final DocumentService documentService;
 
     // _______________________________________________________
     // Request to see the main info of authorized employee page
@@ -61,7 +62,8 @@ public class MainPageController {
         logStatement.setStatus(request.getStatus());
         System.out.println(logStatement.getId() + "    " +
                 logStatement.getStatus());
-        logStatementService.saveLogStatement(logStatement);
+        if(logStatementService.saveLogStatement(logStatement))
+            System.out.println("ok");
         return ResponseEntity.ok("Done ");
     }
 
@@ -150,21 +152,31 @@ public class MainPageController {
         return ResponseEntity.ok("Done");
     }
 
-    @PostMapping(path = "/ls", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> createLS( Authentication authentication,
-                                            @RequestBody LogStatementCreateRequest request ){
+    @PostMapping(path = "/lscreate", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> createLS( @RequestBody LogStatementCreateRequest request,
+                                            Authentication authentication
+                                            ){
         LogStatement logStatement = LogStatement.builder()
-                .idApprover(request.idApprover)
+                .id(0)
+                .idApprover(request.getIdApprover())
                 .status(3)
-                .idEmployee(userService.findUserByFirstName(authentication.getName()))
-                .commentLs()
-                .typeLeave()
-                .dateLeave()
-                .dateOfLs()
-                .daysSum()
+                .idEmployee(userService.findUserByFirstName(authentication.getName()).getIdLogin())
+                .commentLs(request.getCommentLs())
+                .typeLeave(request.getTypeLeave())
+                .dateLeave(request.getDateLeave())
+                .dateOfLs(request.getDateOfLs())
+                .daysSum(request.getDaysSum())
                 .build();
-
-        logStatementService.saveLogStatement(logStatement);
+        if(logStatementService.saveLogStatementAll(logStatement))
+            System.out.println("ok");
+        if(request.getBodyDoc()!= null) {
+            Document document = Document.builder()
+                    .bodyDoc(request.getBodyDoc())
+                    .idLs(logStatement.getId())
+                    .build();
+            if(documentService.saveDocument(document))
+                System.out.println("ok");
+        }
         return ResponseEntity.ok("Done ");
     }
 

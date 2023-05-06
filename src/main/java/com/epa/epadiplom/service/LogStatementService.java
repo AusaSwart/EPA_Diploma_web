@@ -12,9 +12,20 @@ import java.util.Optional;
 public class LogStatementService {
 
     private final LogStatementRepository logStatementRepository;
-    public void saveLogStatement(LogStatement logStatement) {
-       if(logStatementRepository.findById(logStatement.getId()).isPresent())
+    public boolean saveLogStatement(LogStatement logStatement) {
+       if(logStatementRepository.findById(logStatement.getId()).isPresent()) {
+           logStatementRepository.save(logStatement);
+           return true;
+       }
+       return false;
+    }
+
+    public boolean saveLogStatementAll(LogStatement logStatement){
+        if(logStatementRepository.findById(logStatement.getId()).isPresent()) {
+           return false;
+        }
         logStatementRepository.save(logStatement);
+        return true;
     }
 
     public Optional<LogStatement> findByIdAndIdApprover (long id, long idApprover){
