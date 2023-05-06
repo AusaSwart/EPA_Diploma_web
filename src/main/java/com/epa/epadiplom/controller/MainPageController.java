@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -29,6 +30,7 @@ public class MainPageController {
     private final NoticeEventService noticeEventService;
     private final TaskService taskService;
     private final EmployeeTaskService employeeTaskService;
+    private final PasswordEncoder passwordEncoder;
 
     // _______________________________________________________
     // Request to see the main info of authorized employee page
@@ -96,17 +98,6 @@ public class MainPageController {
                 .build();
         if(eventService.saveEvent(event))
             System.out.println("ok");
-//        NoticeEvent noticeEvent = NoticeEvent.builder()
-//                .recipientId(request.getRecipientId())
-//                .eventId(event.getId())
-//                .employeeId(userService.findUserByFirstName(authentication.getName()).getIdLogin())
-//                .id(0)
-//                .build();
-//        System.out.println(noticeEvent.getRecipientId() + "   " +
-//                noticeEvent.getEventId() + "  " +
-//                noticeEvent.getEmployeeId());
-//        if(noticeEventService.saveNoticeEvent(noticeEvent))
-//            System.out.println("ok");
         return ResponseEntity.ok("Done");
     }
 
@@ -149,6 +140,33 @@ public class MainPageController {
         return ResponseEntity.ok("Done");
     }
 
+    @PostMapping(path = "/password", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> changePassword(@RequestBody LoginRequest request,
+                                              Authentication authentication) {
+        User user = userService.findUserByFirstName(authentication.getName());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        if (userService.saveUserPassword(user))
+            System.out.println("ok");
+        return ResponseEntity.ok("Done");
+    }
+
+    @PostMapping(path = "/ls", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> createLS( Authentication authentication,
+                                            @RequestBody LogStatementCreateRequest request ){
+        LogStatement logStatement = LogStatement.builder()
+                .idApprover(request.idApprover)
+                .status(3)
+                .idEmployee(userService.findUserByFirstName(authentication.getName()))
+                .commentLs()
+                .typeLeave()
+                .dateLeave()
+                .dateOfLs()
+                .daysSum()
+                .build();
+
+        logStatementService.saveLogStatement(logStatement);
+        return ResponseEntity.ok("Done ");
+    }
 
 
 }

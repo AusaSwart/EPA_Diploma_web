@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,5 +26,12 @@ public class UserService {
             return false;
         userRepository.save(user);
         return true;
+    }
+    public boolean saveUserPassword(User user) {
+        if(userRepository.findByFirstName(user.getFirstName()).isPresent()) {
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 }
